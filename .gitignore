@@ -19,3 +19,11 @@
 *.exe
 *.out
 *.app
+
+# Visual Studio
+**/[Dd]ebug/*
+**/[Rr]elease/*
+**/x64/*
+*.sdf
+*.opensdf
+*.suo
