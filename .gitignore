@@ -27,3 +27,6 @@
 *.sdf
 *.opensdf
 *.suo
+
+# NodeJS
+node_modules
