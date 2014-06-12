@@ -57,7 +57,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Projects\node-v0.10.28;C:\Projects\node-v0.10.28\deps\uv\include;C:\Projects\node-v0.10.28\deps\v8\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Projects\node-v0.10.28\src;C:\Projects\node-v0.10.28\deps\uv\include;C:\Projects\node-v0.10.28\deps\v8\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
