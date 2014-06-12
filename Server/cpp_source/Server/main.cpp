@@ -1,5 +1,6 @@
 #include <node.h>
 #include <v8.h>
+#include "Test.h"
 using namespace v8;
 
 Handle<Value> Method(const Arguments& args) {
@@ -8,6 +9,8 @@ Handle<Value> Method(const Arguments& args) {
 }
 
 void init(Handle<Object> exports) {
+	Test test;
+	test.boo();
 	exports->Set(String::NewSymbol("hello"),
 		FunctionTemplate::New(Method)->GetFunction());
 }
