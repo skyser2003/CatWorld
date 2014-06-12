@@ -49,6 +49,9 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>node postbuild.js</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -64,6 +67,9 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <PostBuildEvent>
+      <Command>node postbuild.js</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
