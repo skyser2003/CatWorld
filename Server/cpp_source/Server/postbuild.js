@@ -3,7 +3,7 @@ var exec = require('child_process').exec;
 
 // Generate binding.gyp
 var cppRegex = new RegExp(/^.*\.cpp$/);
-var files = fs.readdirSync(__dirname);
+var files = fs.readdirSync(__dirname + "/..");
 var targetName = "server";
 
 var binding = {};
