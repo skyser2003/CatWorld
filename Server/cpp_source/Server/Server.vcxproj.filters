@@ -2,18 +2,5 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Test.cpp">
-      <Filter>Packet</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Packet">
-      <UniqueIdentifier>{3cc44925-41fc-4f6d-b14f-6c5a4d1ae5b5}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Test.h">
-      <Filter>Packet</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

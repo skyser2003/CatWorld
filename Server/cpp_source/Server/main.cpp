@@ -1,6 +1,5 @@
 #include <node.h>
 #include <v8.h>
-#include "Test.h"
 using namespace v8;
 
 Handle<Value> Method(const Arguments& args) {
