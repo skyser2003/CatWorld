@@ -4,10 +4,32 @@
     <Filter Include="Message">
       <UniqueIdentifier>{a57afbea-bbc3-41c1-a150-ac36ddf8b2fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Autogen">
+      <UniqueIdentifier>{314a8a63-7a93-4107-9514-974f98174e04}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Message.proto">
       <Filter>Message</Filter>
     </None>
+    <None Include="Struct.proto">
+      <Filter>Message</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Autogen\Struct.pb.cc">
+      <Filter>Autogen</Filter>
+    </ClCompile>
+    <ClCompile Include="Autogen\Message.pb.cc">
+      <Filter>Autogen</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Autogen\Struct.pb.h">
+      <Filter>Autogen</Filter>
+    </ClInclude>
+    <ClInclude Include="Autogen\Message.pb.h">
+      <Filter>Autogen</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
