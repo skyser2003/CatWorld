@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Server", "Server\Server.vcxproj", "{7238AD3D-D706-4D06-8BCB-1CC2DFEA6B98}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Packet", "Packet\Packet.vcxproj", "{7EB73561-CE00-42E3-95D3-53E571D10C6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{7238AD3D-D706-4D06-8BCB-1CC2DFEA6B98}.Debug|Win32.Build.0 = Debug|Win32
 		{7238AD3D-D706-4D06-8BCB-1CC2DFEA6B98}.Release|Win32.ActiveCfg = Release|Win32
 		{7238AD3D-D706-4D06-8BCB-1CC2DFEA6B98}.Release|Win32.Build.0 = Release|Win32
+		{7EB73561-CE00-42E3-95D3-53E571D10C6A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7EB73561-CE00-42E3-95D3-53E571D10C6A}.Debug|Win32.Build.0 = Debug|Win32
+		{7EB73561-CE00-42E3-95D3-53E571D10C6A}.Release|Win32.ActiveCfg = Release|Win32
+		{7EB73561-CE00-42E3-95D3-53E571D10C6A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
