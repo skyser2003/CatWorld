@@ -35,3 +35,4 @@ node_modules
 # Auto generated files
 Server/cpp_source/Server/binding.gyp
 Server/cpp_source/Server/build
+Server/cpp_source/Packet/Autogen
