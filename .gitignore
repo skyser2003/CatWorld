@@ -36,3 +36,4 @@ node_modules
 Server/cpp_source/Server/binding.gyp
 Server/cpp_source/Server/build
 Server/cpp_source/Packet/Autogen
+Server/nodejs_source/public/proto
