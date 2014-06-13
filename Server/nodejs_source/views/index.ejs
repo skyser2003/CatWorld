@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title><%= title %></title>
-	</head>
-	<script src="/socket.io/socket.io.js"></script>
-	<script>
-	  var socket = io();
-	</script>
-	<body>
-		Hello World~
-	</body>
+<head>
+    <title><%= title %></title>
+</head>
+<script src="/js/Long.min.js"></script>
+<script src="/js/ByteBufferAB.min.js"></script>
+<script src="/js/ProtoBuf.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io();
+    var ProtoBuf = dcodeIO.ProtoBuf;
+    var builder = ProtoBuf.loadProtoFile("proto/Message.proto");
+</script>
+<body>
+    Hello World~
+</body>
 </html>
