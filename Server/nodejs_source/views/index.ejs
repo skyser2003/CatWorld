@@ -10,7 +10,8 @@
 <script>
     var socket = io();
     var ProtoBuf = dcodeIO.ProtoBuf;
-    var builder = ProtoBuf.loadProtoFile("proto/Message.proto");
+    var msgBuilder = ProtoBuf.loadProtoFile("proto/Message.proto");
+    var structBuilder = ProtoBuf.loadProtoFile("proto/Struct.proto");
 </script>
 <body>
     Hello World~
