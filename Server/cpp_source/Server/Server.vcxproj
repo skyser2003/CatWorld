@@ -52,6 +52,9 @@
     <PostBuildEvent>
       <Command>node postbuild.js</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>node prebuild.js</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -70,6 +73,9 @@
     <PostBuildEvent>
       <Command>node postbuild.js</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>node prebuild.js</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
