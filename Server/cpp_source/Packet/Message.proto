@@ -1,4 +1,7 @@
-enum Message
+message Packet
 {
-	
+	enum Message
+	{
+		LOGIN = 1;
+	}
 }
