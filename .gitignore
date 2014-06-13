@@ -33,7 +33,7 @@
 node_modules
 
 # Auto generated files
-Server/cpp_source/Server/binding.gyp
-Server/cpp_source/Server/build
-Server/cpp_source/Packet/Autogen
-Server/nodejs_source/public/proto
+cpp_source/Server/binding.gyp
+cpp_source/Server/build
+cpp_source/Packet/Autogen
+nodejs_source/public/proto
