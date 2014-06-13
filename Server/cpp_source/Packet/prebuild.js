@@ -25,3 +25,12 @@ for (var i in protoFiles) {
 console.log(execString);
 
 exec(execString);
+
+// Copy .proto files to nodejs source folder
+for(var i in protoFiles)
+{
+    var fullPath = __dirname + "\\" + protoFiles[i];
+    fs.createReadStream(fullPath).pipe(fs.createWriteStream("../../nodejs_source/public/proto/" + protoFiles[i]));
+}
+
+console.log("Packet project prebuild success!");
