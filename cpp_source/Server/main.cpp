@@ -1,7 +1,6 @@
 #include <node.h>
-#include <v8.h>
 
-#include "Server.h"
+#include "ServerModule.h"
 using namespace v8;
 
 Handle<Value> Method(const Arguments& args) {
