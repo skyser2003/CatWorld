@@ -78,9 +78,9 @@ for (var i in directories) {
 fs.writeFile("binding.gyp", JSON.stringify(binding));
 
 // Activate node-gyp
-exec("node-gyp configure build --arch=x64 --msvs_version=2013");
+exec("node-gyp configure build --arch=x64 --msvs_version=2013", function (err, stdout, stderr) {
+    // Copy generated file to express server's node_modules
+    fs.createReadStream("build/Release/" + targetName + ".node").pipe(fs.createWriteStream("../../nodejs_source/node_modules/" + targetName + ".node"));
 
-// Copy generated file to express server's node_modules
-fs.createReadStream("build/Release/" + targetName + ".node").pipe(fs.createWriteStream("../../nodejs_source/node_modules/" + targetName + ".node"));
-
-console.log("Postbuild success");
+    console.log("Postbuild success");
+});
