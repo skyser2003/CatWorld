@@ -1,6 +1,14 @@
 var fs = require('fs');
 var exec = require('child_process').exec;
 
+function addInclude(binding, path) {
+    binding.targets[0].include_dirs.push(path);
+}
+
+function addLib(arr, path) {
+    binding.targets[0].libraries.push(path);
+}
+
 // Generate binding.gyp
 var cppRegex = new RegExp(/^.*\.(cpp|pb\.cc)$/);
 var targetName = "server";
@@ -12,11 +20,13 @@ binding.targets[0].target_name = targetName;
 binding.targets[0].sources = [];
 
 binding.targets[0].include_dirs = [];
-binding.targets[0].include_dirs[0] = __dirname + "\\..\\External\\protobuf-2.5.0\\src";
-binding.targets[0].include_dirs[1] = __dirname + "\\..\\External\\protobuf-2.5.0\\gtest\\include";
-
 binding.targets[0].libraries = [];
-binding.targets[0].libraries[0] = __dirname + "\\..\\External\\libprotobuf_Release.lib";
+
+addInclude(binding, __dirname + "\\..\\External\\protobuf-2.5.0\\src");
+addInclude(binding, __dirname + "\\..\\External\\protobuf-2.5.0\\gtest\\include");
+addInclude(binding, __dirname + "\\..\\ServerLib");
+
+addLib(binding, __dirname + "\\..\\External\\libprotobuf_Release.lib");
 
 var directories = [];
 var dirLevels = [];
