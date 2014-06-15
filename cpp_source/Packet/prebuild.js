@@ -15,6 +15,10 @@ for (var i in files) {
     }
 }
 
+if (fs.existsSync("Autogen") == false) {
+    fs.mkdirSync("Autogen");
+}
+
 var execString = protoc +
     " --cpp_out=\"" + __dirname + "\\Autogen\"" +
     " -I" + __dirname;
