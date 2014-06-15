@@ -3,4 +3,9 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Server">
+      <UniqueIdentifier>{d89bb0b2-c361-48ce-a172-81e3cf76325a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
 </Project>
