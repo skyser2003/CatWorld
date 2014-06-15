@@ -7,4 +7,4 @@ void init(Handle<Object> exports) {
 	ServerModule::Export(exports);
 }
 
-NODE_MODULE(Server, init)
+NODE_MODULE(gameServer, init)

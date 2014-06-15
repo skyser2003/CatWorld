@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 var debug = require('debug')('nodejs_source');
 var app = require('../app');
+var gameServer = require('gameServer');
 
 app.set('port', process.env.PORT || 3000);
 
@@ -9,8 +10,11 @@ var server = app.listen(app.get('port'), function() {
 });
 
 var io = require('socket.io')(server);
+console.log(gameServer);
+var cppServer = new gameServer.Server();
 
 // Socket.io
 io.on('connection', function(socket){
   console.log('a user connected');
+  cppServer.parse();
 });

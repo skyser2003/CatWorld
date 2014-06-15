@@ -11,7 +11,7 @@ function addLib(arr, path) {
 
 // Generate binding.gyp
 var cppRegex = new RegExp(/^.*\.(cpp|pb\.cc)$/);
-var targetName = "server";
+var targetName = "gameServer";
 
 var binding = {};
 binding.targets = [];
