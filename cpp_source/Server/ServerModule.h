@@ -7,8 +7,9 @@ using namespace v8;
 
 class ServerModule : public node::ObjectWrap
 {
-private:
+public:
 	static void Export(Handle<Object> exports);
+private:
 	static Handle<Value> New(const Arguments& args);
 	static Handle<Value> Parse(const v8::Arguments& args);
 private:

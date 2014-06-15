@@ -9,8 +9,7 @@ Handle<Value> Method(const Arguments& args) {
 }
 
 void init(Handle<Object> exports) {
-	exports->Set(String::NewSymbol("hello"),
-		FunctionTemplate::New(Method)->GetFunction());
+	ServerModule::Export(exports);
 }
 
-NODE_MODULE(server, init)
+NODE_MODULE(Server, init)

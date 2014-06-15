@@ -1,5 +1,9 @@
 #include "ServerModule.h"
 
+v8::Persistent<v8::Function> ServerModule::constructor;
+ServerLib ServerModule::serverLib;
+
+
 void ServerModule::Export(Handle<Object> exports)
 {
 	// Prepare constructor template
@@ -13,7 +17,6 @@ void ServerModule::Export(Handle<Object> exports)
 	constructor = Persistent<Function>::New(tpl->GetFunction());
 	exports->Set(String::NewSymbol("Server"), constructor);
 }
-
 
 Handle<Value> ServerModule::New(const Arguments& args) {
 	HandleScope scope;
