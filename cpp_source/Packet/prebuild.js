@@ -26,9 +26,12 @@ for (var i in protoFiles) {
     execString += " " + __dirname + "\\" + protoFiles[i];
 }
 
-console.log(execString);
-
-exec(execString);
+exec(execString, {}, function (err, stdout, stderr) {
+    console.log(execString);
+    //stdout.on('data', function (chunk) {
+     //   console.log(chunk);
+    //});
+});
 
 // Copy .proto files to nodejs source folder
 if (fs.existsSync("../../nodejs_source/public/proto/") == false) {
