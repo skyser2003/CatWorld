@@ -5,6 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var debug = require('debug')('nodejs_source');
+var protobufjs = require('protobufjs');
+var gameServer = require('gameServer');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -55,4 +59,26 @@ app.use(function(err, req, res, next) {
     });
 });
 
-module.exports = app;
+
+// Run
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function () {
+    debug('Express server listening on port ' + server.address().port);
+});
+
+var io = require('socket.io')(server);
+console.log(gameServer);
+var cppServer = new gameServer.Server();
+
+// Socket.io
+io.on('connection', function (socket) {
+
+    socket.on('packet', function (data) {
+        var obj = JSON.parse(data);
+        obj.data
+        //cppServer.parse(data.msg, data.data);
+    });
+    console.log('a user connected');
+    cppServer.parse();
+});
