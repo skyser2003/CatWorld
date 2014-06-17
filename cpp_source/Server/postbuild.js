@@ -25,6 +25,7 @@ binding.targets[0].libraries = [];
 addInclude(binding, __dirname + "\\..\\External\\protobuf-2.5.0\\src");
 addInclude(binding, __dirname + "\\..\\External\\protobuf-2.5.0\\gtest\\include");
 addInclude(binding, __dirname + "\\..\\ServerLib");
+addInclude(binding, __dirname + "\\..\\Packet");
 
 addLib(binding, __dirname + "\\..\\External\\libprotobuf_Release.lib");
 
@@ -79,6 +80,7 @@ fs.writeFile("binding.gyp", JSON.stringify(binding));
 
 // Activate node-gyp
 exec("node-gyp configure build --arch=x64 --msvs_version=2013", function (err, stdout, stderr) {
+    console.log(err);
     // Copy generated file to express server's node_modules
     fs.createReadStream("build/Release/" + targetName + ".node").pipe(fs.createWriteStream("../../nodejs_source/node_modules/" + targetName + ".node"));
 

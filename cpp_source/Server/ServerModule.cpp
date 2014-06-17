@@ -22,6 +22,8 @@ Handle<Value> ServerModule::New(const Arguments& args) {
 	HandleScope scope;
 
 	if (args.IsConstructCall()) {
+		serverLib.Init();
+
 		// Invoked as constructor: `new MyObject(...)`
 		auto* obj = new ServerModule();
 		obj->Wrap(args.This());
@@ -38,7 +40,12 @@ Handle<Value> ServerModule::New(const Arguments& args) {
 Handle<Value> ServerModule::Parse(const v8::Arguments& args)
 {
 	HandleScope scope;
-	serverLib.Parse();
+	int msg = args[0]->Int32Value();
+	auto bufferObj = args[1]->ToObject();
+	int length = bufferObj->GetIndexedPropertiesExternalArrayDataLength();
+	void* buffer = static_cast<void*>(bufferObj->GetIndexedPropertiesExternalArrayData());
+
+	serverLib.Parse(msg, length, buffer);
 
 	return scope.Close(Null());
 }

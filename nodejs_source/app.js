@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var debug = require('debug')('nodejs_source');
-var protobufjs = require('protobufjs');
+var ProtoBuf = require('protobufjs');
 var gameServer = require('gameServer');
 
 var routes = require('./routes/index');
@@ -68,17 +68,33 @@ var server = app.listen(app.get('port'), function () {
 });
 
 var io = require('socket.io')(server);
-console.log(gameServer);
 var cppServer = new gameServer.Server();
+
+var msgBuilder = ProtoBuf.loadProtoFile("public/proto/Message.proto");
+var structBuilder = ProtoBuf.loadProtoFile("public/proto/Struct.proto");
+
+var Packet = msgBuilder.build("Packet");
+var LOGIN = structBuilder.build("LOGIN");
+
+var table = [];
+
+// Init message - struct dictionary
+for (var msgName in Packet.Message) {
+    var value = Packet.Message[msgName];
+
+    table[value] = structBuilder.build(msgName);
+}
 
 // Socket.io
 io.on('connection', function (socket) {
-
     socket.on('packet', function (data) {
         var obj = JSON.parse(data);
-        obj.data
-        //cppServer.parse(data.msg, data.data);
+        var msg = obj.msg;
+
+        var struct = table[msg];
+        var decoded = struct.decodeHex(obj.data);
+        var newMsg = new struct(decoded.toRaw());
+
+        cppServer.parse(msg, newMsg.toBuffer());
     });
-    console.log('a user connected');
-    cppServer.parse();
 });
