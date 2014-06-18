@@ -84,14 +84,6 @@
     <ClCompile Include="ServerModule.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Packet\Packet.vcxproj">
-      <Project>{7eb73561-ce00-42e3-95d3-53e571d10c6a}</Project>
-      <Private>false</Private>
-      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
-      <LinkLibraryDependencies>true</LinkLibraryDependencies>
-      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
-    </ProjectReference>
     <ProjectReference Include="..\ServerLib\ServerLib.vcxproj">
       <Project>{846b37b5-91ca-4157-a358-f7b67a71a9fd}</Project>
       <Private>false</Private>
