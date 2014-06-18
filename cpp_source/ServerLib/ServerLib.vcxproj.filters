@@ -14,5 +14,8 @@
     <ClCompile Include="ServerLib.cpp">
       <Filter>ServerLib</Filter>
     </ClCompile>
+    <ClCompile Include="ServerLib_OnPacket.cpp">
+      <Filter>ServerLib</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

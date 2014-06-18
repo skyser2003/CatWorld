@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ServerLib.cpp" />
+    <ClCompile Include="ServerLib_OnPacket.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Packet\Packet.vcxproj">
