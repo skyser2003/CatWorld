@@ -5,3 +5,8 @@ message LOGIN
 	required string id = 1;
 	required int32 pw = 2;
 }
+
+message CHAT
+{
+	required string msg = 1;
+}
