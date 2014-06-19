@@ -2,26 +2,26 @@
 <html>
 <head>
     <title><%= title %></title>
+    <script src="/js/Long.min.js"></script>
+    <script src="/js/ByteBufferAB.min.js"></script>
+    <script src="/js/ProtoBuf.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        var ProtoBuf = dcodeIO.ProtoBuf;
+        var msgBuilder = ProtoBuf.loadProtoFile("proto/Message.proto");
+        var structBuilder = ProtoBuf.loadProtoFile("proto/Struct.proto");
+
+        var packet = { msg: "", data: "" };
+
+        var LOGIN = structBuilder.build("LOGIN");
+        var send = new LOGIN({ "id": "skyser2003", "pw": 4 });
+        packet.msg = msgBuilder.build("Packet").Message.LOGIN;
+        packet.data = send.toHex();
+
+        socket.emit("packet", JSON.stringify(packet));
+    </script>
 </head>
-<script src="/js/Long.min.js"></script>
-<script src="/js/ByteBufferAB.min.js"></script>
-<script src="/js/ProtoBuf.min.js"></script>
-<script src="/socket.io/socket.io.js"></script>
-<script>
-    var socket = io();
-    var ProtoBuf = dcodeIO.ProtoBuf;
-    var msgBuilder = ProtoBuf.loadProtoFile("proto/Message.proto");
-    var structBuilder = ProtoBuf.loadProtoFile("proto/Struct.proto");
-
-    var packet = { msg: "", data: "" };
-
-    var LOGIN = structBuilder.build("LOGIN");
-    var send = new LOGIN({ "id": "skyser2003", "pw" : 4 });
-    packet.msg = msgBuilder.build("Packet").Message.LOGIN;
-    packet.data = send.toHex();
-
-    socket.emit("packet", JSON.stringify(packet));
-</script>
 <body>
     Hello World~
 </body>
