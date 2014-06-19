@@ -2,10 +2,12 @@
 
 #include "Autogen/Struct.pb.h"
 
+#include <iostream>
+
 template <>
 void ServerLib::OnPacket(LOGIN& pks)
 {
-
+	std::cout << pks.id() << std::endl;
 }
 
 template <>
