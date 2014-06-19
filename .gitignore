@@ -31,6 +31,7 @@
 
 # NodeJS
 node_modules
+npm-debug.log
 
 # Auto generated files
 cpp_source/Server/binding.gyp
