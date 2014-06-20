@@ -1,8 +1,10 @@
 #include "ServerModule.h"
 
+#include <fstream>
+
 v8::Persistent<v8::Function> ServerModule::constructor;
 ServerLib ServerModule::serverLib;
-
+v8::Local<v8::Object> ServerModule::sendFunc;
 
 void ServerModule::Export(Handle<Object> exports)
 {
@@ -46,6 +48,30 @@ Handle<Value> ServerModule::Parse(const v8::Arguments& args)
 	void* buffer = static_cast<void*>(bufferObj->GetIndexedPropertiesExternalArrayData());
 
 	serverLib.Parse(msg, length, buffer);
+
+	return scope.Close(Null());
+}
+
+void ServerModule::Send(google::protobuf::Message& pks)
+{
+	void* arr = malloc(pks.ByteSize());
+	pks.SerializeToArray(arr, pks.ByteSize());
+	Local<Value> args[] = { External::New(arr) };
+	sendFunc->CallAsFunction(Context::GetCurrent()->Global(), 1, args);
+	free(arr);
+}
+
+Handle<Value> ServerModule::SetSendFunction(const v8::Arguments& args)
+{
+	HandleScope scope;
+
+	sendFunc = args[0]->ToObject();
+
+	// Set ServerLib callback
+	serverLib.SetSendFunction([](google::protobuf::Message& msg)
+	{
+		ServerModule::Send(msg);
+	});
 
 	return scope.Close(Null());
 }

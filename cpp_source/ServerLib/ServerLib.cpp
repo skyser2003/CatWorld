@@ -42,6 +42,16 @@ void ServerLib::Parse(int msg, int length, void* buffer)
 	(this->*handlerFunc)(*msgStruct.get());
 }
 
+void ServerLib::Send(MSG& pks)
+{
+	sendFunction(pks);
+}
+
+void ServerLib::SetSendFunction(std::function<void(MSG&)> sendFunction)
+{
+	this->sendFunction = sendFunction;
+}
+
 template <class PKS>
 void ServerLib::RegisterHandler(google::protobuf::Message& pks)
 {
