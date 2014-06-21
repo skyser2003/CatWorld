@@ -98,8 +98,8 @@ if (mode == "Debug") {
 exec(gypString, function (err, stdout, stderr) {
     console.log(err);
     // Copy generated file to express server's node_modules
-    fs.createReadStream("build/Release/" + targetName + ".node").pipe(fs.createWriteStream("../../nodejs_source/node_modules/" + targetName + ".node"));
-    fs.createReadStream("build/Release/" + targetName + ".pdb").pipe(fs.createWriteStream("../../nodejs_source/node_modules/" + targetName + ".pdb"));
+    fs.createReadStream("build/" + mode + "/" + targetName + ".node").pipe(fs.createWriteStream("../../nodejs_source/node_modules/" + targetName + ".node"));
+    fs.createReadStream("build/" + mode + "/" + targetName + ".pdb").pipe(fs.createWriteStream("../../nodejs_source/node_modules/" + targetName + ".pdb"));
 
     console.log("Postbuild success");
 });
