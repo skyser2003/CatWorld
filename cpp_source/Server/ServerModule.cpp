@@ -16,6 +16,8 @@ void ServerModule::Export(Handle<Object> exports)
 	// Prototype
 	tpl->PrototypeTemplate()->Set(String::NewSymbol("parse"),
 		FunctionTemplate::New(Parse)->GetFunction());
+	tpl->PrototypeTemplate()->Set(String::NewSymbol("onSendMsg"),
+		FunctionTemplate::New(SetSendFunction)->GetFunction());
 	constructor = Persistent<Function>::New(tpl->GetFunction());
 	exports->Set(String::NewSymbol("Server"), constructor);
 }
@@ -52,12 +54,13 @@ Handle<Value> ServerModule::Parse(const v8::Arguments& args)
 	return scope.Close(Null());
 }
 
-void ServerModule::Send(google::protobuf::Message& pks)
+void ServerModule::Send(int msg, google::protobuf::Message& pks)
 {
 	void* arr = malloc(pks.ByteSize());
 	pks.SerializeToArray(arr, pks.ByteSize());
-	Local<Value> args[] = { External::New(arr) };
-	sendFunc->CallAsFunction(Context::GetCurrent()->Global(), 1, args);
+	Local<Value> args[] = { Number::New(msg), External::New(arr) };
+	printf("%s", sendFunc->IsExternal());
+	sendFunc->CallAsFunction(Context::GetCurrent()->Global(), 2, args);
 	free(arr);
 }
 
@@ -68,9 +71,9 @@ Handle<Value> ServerModule::SetSendFunction(const v8::Arguments& args)
 	sendFunc = args[0]->ToObject();
 
 	// Set ServerLib callback
-	serverLib.SetSendFunction([](google::protobuf::Message& msg)
+	serverLib.SetSendFunction([](int msg, google::protobuf::Message& pks)
 	{
-		ServerModule::Send(msg);
+		ServerModule::Send(msg, pks);
 	});
 
 	return scope.Close(Null());

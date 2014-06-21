@@ -70,6 +70,12 @@ var server = app.listen(app.get('port'), function () {
 var io = require('socket.io')(server);
 var cppServer = new gameServer.Server();
 
+cppServer.onSendMsg(function (msg, pks) {
+    var struct = table[msg];
+    var encoded = struct.encodeHex(pks);
+    socket.emit({"packet" : encoded});
+});
+
 var msgBuilder = ProtoBuf.loadProtoFile("public/proto/Message.proto");
 var structBuilder = ProtoBuf.loadProtoFile("public/proto/Struct.proto");
 

@@ -23,6 +23,10 @@
         packet.data = send.toHex();
 
         socket.emit("packet", JSON.stringify(packet));
+
+        socket.on("packet", function (data) {
+            console.log(data);
+        });
     </script>
 </head>
 <body>

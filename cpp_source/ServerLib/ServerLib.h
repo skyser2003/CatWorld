@@ -18,7 +18,7 @@ public:
 	void Parse(int msg, int length, void* buffer);
 	void Send(MSG& pks);
 
-	void SetSendFunction(std::function<void(MSG&)> sendFunction);
+	void SetSendFunction(std::function<void(int, MSG&)> sendFunction);
 
 	template <class PKS>
 	void OnPacket(PKS& pks);
@@ -30,8 +30,10 @@ private:
 
 	void CallPacketHandler(int msg);
 
-	std::function<void(MSG&)> sendFunction;
+	std::function<void(int, MSG&)> sendFunction;
 
 	std::unordered_map<int, packetHandler> handlerList;
 	std::unordered_map<int, packetGenerator> generatorList;
+
+	std::unordered_map<std::string, int> msgList;
 };

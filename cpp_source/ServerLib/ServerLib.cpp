@@ -16,6 +16,11 @@ using namespace std;
 	pair2.first = Packet::name; \
 	pair2.second = &ServerLib::GenerateHandler<name>; \
 	generatorList.insert(pair2); \
+	\
+	std::pair<string, int> pair3; \
+	pair3.first = #name; \
+	pair3.second = Packet::name;\
+	msgList.insert(pair3); \
 }
 
 void ServerLib::Init()
@@ -44,10 +49,10 @@ void ServerLib::Parse(int msg, int length, void* buffer)
 
 void ServerLib::Send(MSG& pks)
 {
-	sendFunction(pks);
+	sendFunction(msgList[pks.GetTypeName()], pks);
 }
 
-void ServerLib::SetSendFunction(std::function<void(MSG&)> sendFunction)
+void ServerLib::SetSendFunction(std::function<void(int, MSG&)> sendFunction)
 {
 	this->sendFunction = sendFunction;
 }

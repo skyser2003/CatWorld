@@ -12,7 +12,7 @@ public:
 private:
 	static Handle<Value> New(const Arguments& args);
 	static Handle<Value> Parse(const v8::Arguments& args);
-	static void Send(google::protobuf::Message& pks);
+	static void Send(int msg, google::protobuf::Message& pks);
 
 	static Handle<Value> SetSendFunction(const v8::Arguments& args);
 private:
