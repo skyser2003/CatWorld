@@ -9,6 +9,9 @@ function addLib(arr, path) {
     binding.targets[0].libraries.push(path);
 }
 
+// Config
+var mode = "Debug";
+
 // Generate binding.gyp
 var cppRegex = new RegExp(/^.*\.(cpp|pb\.cc)$/);
 var targetName = "gameServer";
@@ -27,7 +30,15 @@ addInclude(binding, __dirname + "\\..\\External\\protobuf-2.5.0\\gtest\\include"
 addInclude(binding, __dirname + "\\..\\ServerLib");
 addInclude(binding, __dirname + "\\..\\Packet");
 
-addLib(binding, __dirname + "\\..\\External\\libprotobuf_Release.lib");
+var libprotobufLibName =  __dirname + "\\..\\External\\libprotobuf_";
+if (mode == "Debug") {
+    libprotobufLibName += "Debug.lib";
+}
+else if (mode == "Release") {
+    libprotobufLibName += "Release.lib";
+
+}
+addLib(binding, libprotobufLibName);
 
 var directories = [];
 var dirLevels = [];
@@ -79,10 +90,16 @@ for (var i in directories) {
 fs.writeFile("binding.gyp", JSON.stringify(binding));
 
 // Activate node-gyp
-exec("node-gyp configure build --arch=x64 --msvs_version=2013", function (err, stdout, stderr) {
+var gypString = "node-gyp configure build --arch=x64 --msvs_version=2013";
+if (mode == "Debug") {
+    gypString += " --debug";
+}
+
+exec(gypString, function (err, stdout, stderr) {
     console.log(err);
     // Copy generated file to express server's node_modules
     fs.createReadStream("build/Release/" + targetName + ".node").pipe(fs.createWriteStream("../../nodejs_source/node_modules/" + targetName + ".node"));
+    fs.createReadStream("build/Release/" + targetName + ".pdb").pipe(fs.createWriteStream("../../nodejs_source/node_modules/" + targetName + ".pdb"));
 
     console.log("Postbuild success");
 });
