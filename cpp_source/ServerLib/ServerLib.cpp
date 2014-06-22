@@ -1,5 +1,4 @@
 #include "stdafx.h"
-
 #include "ServerLib.h"
 
 #include <iostream>
