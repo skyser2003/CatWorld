@@ -2,9 +2,12 @@
 
 #include <fstream>
 
+#include "node_buffer.h"
+
 v8::Persistent<v8::Function> ServerModule::constructor;
 ServerLib ServerModule::serverLib;
 v8::Persistent<v8::Function> ServerModule::sendFunc;
+v8::Persistent<v8::Function> ServerModule::msgStructGetFunc;
 
 void ServerModule::Export(Handle<Object> exports)
 {
@@ -16,8 +19,10 @@ void ServerModule::Export(Handle<Object> exports)
 	// Prototype
 	tpl->PrototypeTemplate()->Set(String::NewSymbol("parse"),
 		FunctionTemplate::New(Parse)->GetFunction());
+
 	tpl->PrototypeTemplate()->Set(String::NewSymbol("onSendMsg"),
 		FunctionTemplate::New(SetSendFunction)->GetFunction());
+
 	constructor = Persistent<Function>::New(tpl->GetFunction());
 	exports->Set(String::NewSymbol("Server"), constructor);
 }
@@ -61,9 +66,14 @@ void ServerModule::Send(int msg, google::protobuf::Message& pks)
 		return;
 	}
 
-	void* arr = malloc(pks.ByteSize());
-	pks.SerializeToArray(arr, pks.ByteSize());
-	Local<Value> args[] = { Number::New(msg), External::New(arr) };
+	int pksLength = pks.ByteSize();
+	void* arr = malloc(pksLength);
+	pks.SerializeToArray(arr, pksLength);
+
+	auto* buffer = node::Buffer::New(reinterpret_cast<const char*>(arr), pksLength);
+	auto dummy = Local<Object>::New(buffer->handle_);
+
+	Local<Value> args[] = { Number::New(msg) , dummy };
 	sendFunc->CallAsFunction(Context::GetCurrent()->Global(), 2, args);
 	free(arr);
 }

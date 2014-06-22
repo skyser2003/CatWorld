@@ -59,7 +59,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
-
 // Run
 app.set('port', process.env.PORT || 3000);
 
@@ -70,36 +69,40 @@ var server = app.listen(app.get('port'), function () {
 var io = require('socket.io')(server);
 var cppServer = new gameServer.Server();
 
-cppServer.onSendMsg(function (msg, pks) {
-    var struct = table[msg];
-    var encoded = struct.encodeHex(pks);
-    console.log(encoded);
-    socket.emit({"packet" : encoded});
-});
-
 var msgBuilder = ProtoBuf.loadProtoFile(__dirname + "/public/proto/Message.proto");
 var structBuilder = ProtoBuf.loadProtoFile(__dirname + "/public/proto/Struct.proto");
 
 var Packet = msgBuilder.build("Packet");
-var LOGIN = structBuilder.build("LOGIN");
 
-var table = [];
 
 // Init message - struct dictionary
+var table = [];
 for (var msgName in Packet.Message) {
     var value = Packet.Message[msgName];
-
     table[value] = structBuilder.build(msgName);
 }
 
 // Socket.io
 io.on('connection', function (socket) {
+
+    // Send
+    cppServer.onSendMsg(function (msg, pks) {
+        var struct = table[msg];
+        var decoded = struct.decode(pks);
+        var sendStruct = new struct(decoded.toRaw());
+
+        var sendPks = { "msg": msg, "data": sendStruct.toHex() };
+        socket.emit("packet", sendPks);
+    });
+
+
+    // Receive
     socket.on('packet', function (data) {
-        var obj = JSON.parse(data);
-        var msg = obj.msg;
+        var msg = data.msg;
+        var hex = data.data;
 
         var struct = table[msg];
-        var decoded = struct.decodeHex(obj.data);
+        var decoded = struct.decodeHex(hex);
         var newMsg = new struct(decoded.toRaw());
 
         cppServer.parse(msg, newMsg.toBuffer());

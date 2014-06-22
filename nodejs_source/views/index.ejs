@@ -15,6 +15,15 @@
         var msgBuilder = ProtoBuf.loadProtoFile("proto/Message.proto");
         var structBuilder = ProtoBuf.loadProtoFile("proto/Struct.proto");
 
+        var Packet = msgBuilder.build("Packet");
+
+        // Init message - struct dictionary
+        var table = [];
+        for (var msgName in Packet.Message) {
+            var value = Packet.Message[msgName];
+            table[value] = structBuilder.build(msgName);
+        }
+
         var packet = { msg: "", data: "" };
 
         var LOGIN = structBuilder.build("LOGIN");
@@ -22,10 +31,16 @@
         packet.msg = msgBuilder.build("Packet").Message.LOGIN;
         packet.data = send.toHex();
 
-        socket.emit("packet", JSON.stringify(packet));
+        socket.emit("packet", packet);
 
         socket.on("packet", function (data) {
-            console.log(data);
+            var msg = data.msg;
+            var hex = data.data;
+
+            var struct = table[msg];
+            var decoded = struct.decodeHex(hex);
+
+            console.log(decoded);
         });
     </script>
 </head>

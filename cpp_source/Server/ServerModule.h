@@ -19,6 +19,7 @@ private:
 	static v8::Persistent<v8::Function> constructor;
 
 	static v8::Persistent<v8::Function> sendFunc;
+	static v8::Persistent<v8::Function> msgStructGetFunc;
 
 	static ServerLib serverLib;
 };
