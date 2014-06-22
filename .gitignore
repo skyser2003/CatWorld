@@ -28,6 +28,7 @@
 *.opensdf
 *.suo
 *.user
+**/ipch/*
 
 # NodeJS
 node_modules
