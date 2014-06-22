@@ -10,6 +10,9 @@
     <Filter Include="PCH">
       <UniqueIdentifier>{0037f4b5-666a-494f-8879-8163f04a09be}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{1464d585-9f30-4b05-975e-bdf15be56a71}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServerLib.h">
@@ -21,12 +24,12 @@
     <ClInclude Include="stdafx.h">
       <Filter>PCH</Filter>
     </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ServerLib.cpp">
-      <Filter>ServerLib</Filter>
-    </ClCompile>
-    <ClCompile Include="ServerLib_OnPacket.cpp">
       <Filter>ServerLib</Filter>
     </ClCompile>
     <ClCompile Include="Client.cpp">
@@ -34,6 +37,12 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game_Packet.cpp">
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

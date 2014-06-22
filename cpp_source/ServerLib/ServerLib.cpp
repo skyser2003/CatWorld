@@ -5,6 +5,7 @@
 using namespace std;
 
 #include "Autogen/Struct.pb.h"
+#include "Game.h"
 
 #define RegisterPacket(name)\
 {\
@@ -22,6 +23,16 @@ using namespace std;
 	pair3.first = #name; \
 	pair3.second = Packet::name;\
 	msgList.insert(pair3); \
+}
+
+ServerLib::ServerLib()
+{
+	game.reset(new Game());
+}
+
+ServerLib::~ServerLib()
+{
+
 }
 
 void ServerLib::Init()
