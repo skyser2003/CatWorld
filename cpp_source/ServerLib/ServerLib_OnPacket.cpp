@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "ServerLib.h"
 
 #include "Autogen/Struct.pb.h"

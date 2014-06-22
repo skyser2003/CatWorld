@@ -46,6 +46,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>../Packet;../External/protobuf-2.5.0/src;</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -60,6 +61,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>../Packet;../External/protobuf-2.5.0/src;</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -69,10 +71,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ServerLib.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ServerLib.cpp" />
     <ClCompile Include="ServerLib_OnPacket.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Packet\Packet.vcxproj">

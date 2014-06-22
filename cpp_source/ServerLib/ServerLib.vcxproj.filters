@@ -4,10 +4,16 @@
     <Filter Include="ServerLib">
       <UniqueIdentifier>{3c093f4e-aeff-4a1d-8f76-47b77f33bab1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PCH">
+      <UniqueIdentifier>{0037f4b5-666a-494f-8879-8163f04a09be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServerLib.h">
       <Filter>ServerLib</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>PCH</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -16,6 +22,9 @@
     </ClCompile>
     <ClCompile Include="ServerLib_OnPacket.cpp">
       <Filter>ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>PCH</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
