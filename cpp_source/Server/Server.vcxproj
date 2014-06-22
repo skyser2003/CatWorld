@@ -45,6 +45,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\Projects\node-v0.10.28\src;C:\Projects\node-v0.10.28\deps\uv\include;C:\Projects\node-v0.10.28\deps\v8\include;../ServerLib;../External/protobuf-2.5.0/src</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -65,6 +66,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\Projects\node-v0.10.28\src;C:\Projects\node-v0.10.28\deps\uv\include;C:\Projects\node-v0.10.28\deps\v8\include;../ServerLib;../External/protobuf-2.5.0/src</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
