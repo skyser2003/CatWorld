@@ -73,11 +73,12 @@ var cppServer = new gameServer.Server();
 cppServer.onSendMsg(function (msg, pks) {
     var struct = table[msg];
     var encoded = struct.encodeHex(pks);
+    console.log(encoded);
     socket.emit({"packet" : encoded});
 });
 
-var msgBuilder = ProtoBuf.loadProtoFile("public/proto/Message.proto");
-var structBuilder = ProtoBuf.loadProtoFile("public/proto/Struct.proto");
+var msgBuilder = ProtoBuf.loadProtoFile(__dirname + "/public/proto/Message.proto");
+var structBuilder = ProtoBuf.loadProtoFile(__dirname + "/public/proto/Struct.proto");
 
 var Packet = msgBuilder.build("Packet");
 var LOGIN = structBuilder.build("LOGIN");

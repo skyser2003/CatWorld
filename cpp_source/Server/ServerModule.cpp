@@ -4,7 +4,7 @@
 
 v8::Persistent<v8::Function> ServerModule::constructor;
 ServerLib ServerModule::serverLib;
-v8::Local<v8::Object> ServerModule::sendFunc;
+v8::Local<v8::Function> ServerModule::sendFunc;
 
 void ServerModule::Export(Handle<Object> exports)
 {
@@ -51,15 +51,18 @@ Handle<Value> ServerModule::Parse(const v8::Arguments& args)
 
 	serverLib.Parse(msg, length, buffer);
 
-	return scope.Close(Null());
+	return scope.Close(Undefined());
 }
 
 void ServerModule::Send(int msg, google::protobuf::Message& pks)
 {
+	if (sendFunc->IsFunction() == false)
+	{
+		return;
+	}
 	void* arr = malloc(pks.ByteSize());
 	pks.SerializeToArray(arr, pks.ByteSize());
 	Local<Value> args[] = { Number::New(msg), External::New(arr) };
-	printf("%s", sendFunc->IsExternal());
 	sendFunc->CallAsFunction(Context::GetCurrent()->Global(), 2, args);
 	free(arr);
 }
@@ -68,13 +71,16 @@ Handle<Value> ServerModule::SetSendFunction(const v8::Arguments& args)
 {
 	HandleScope scope;
 
-	sendFunc = args[0]->ToObject();
-
+	sendFunc = Local<Function>::Cast(args[0]);
+	if (sendFunc->IsFunction() == false)
+	{
+		return scope.Close(Undefined());
+	}
 	// Set ServerLib callback
 	serverLib.SetSendFunction([](int msg, google::protobuf::Message& pks)
 	{
 		ServerModule::Send(msg, pks);
 	});
 
-	return scope.Close(Null());
+	return scope.Close(Undefined());
 }
