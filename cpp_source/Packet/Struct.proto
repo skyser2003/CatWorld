@@ -3,7 +3,7 @@ import "Message.proto";
 message LOGIN
 {
 	required string id = 1;
-	required int32 pw = 2;
+	required string pw = 2;
 }
 
 message CHAT
