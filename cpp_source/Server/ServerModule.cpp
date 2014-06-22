@@ -4,7 +4,7 @@
 
 v8::Persistent<v8::Function> ServerModule::constructor;
 ServerLib ServerModule::serverLib;
-v8::Local<v8::Function> ServerModule::sendFunc;
+v8::Persistent<v8::Function> ServerModule::sendFunc;
 
 void ServerModule::Export(Handle<Object> exports)
 {
@@ -60,6 +60,7 @@ void ServerModule::Send(int msg, google::protobuf::Message& pks)
 	{
 		return;
 	}
+
 	void* arr = malloc(pks.ByteSize());
 	pks.SerializeToArray(arr, pks.ByteSize());
 	Local<Value> args[] = { Number::New(msg), External::New(arr) };
@@ -71,11 +72,13 @@ Handle<Value> ServerModule::SetSendFunction(const v8::Arguments& args)
 {
 	HandleScope scope;
 
-	sendFunc = Local<Function>::Cast(args[0]);
+	sendFunc = Persistent<Function>::New(args[0].As<Function>());
+
 	if (sendFunc->IsFunction() == false)
 	{
 		return scope.Close(Undefined());
 	}
+
 	// Set ServerLib callback
 	serverLib.SetSendFunction([](int msg, google::protobuf::Message& pks)
 	{

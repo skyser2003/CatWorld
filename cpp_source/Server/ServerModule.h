@@ -18,7 +18,7 @@ private:
 private:
 	static v8::Persistent<v8::Function> constructor;
 
-	static v8::Local<v8::Function> sendFunc;
+	static v8::Persistent<v8::Function> sendFunc;
 
 	static ServerLib serverLib;
 };
