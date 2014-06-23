@@ -1,5 +1,8 @@
 #pragma once
 
+class Client;
+class ClientManager;
+
 class Game
 {
 public:
@@ -8,7 +11,6 @@ public:
 
 	template <class PKS>
 	void OnPacket(PKS& pks);
-
 private:
-
+	std::unique_ptr<ClientManager> cm;
 };
