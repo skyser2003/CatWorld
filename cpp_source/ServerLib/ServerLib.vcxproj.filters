@@ -13,6 +13,9 @@
     <Filter Include="Game">
       <UniqueIdentifier>{1464d585-9f30-4b05-975e-bdf15be56a71}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DB">
+      <UniqueIdentifier>{e5e62846-7e04-4d73-96f1-98850ae3a43b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServerLib.h">
@@ -29,6 +32,9 @@
     </ClInclude>
     <ClInclude Include="ClientManager.h">
       <Filter>Client</Filter>
+    </ClInclude>
+    <ClInclude Include="DBManager.h">
+      <Filter>DB</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +55,9 @@
     </ClCompile>
     <ClCompile Include="ClientManager.cpp">
       <Filter>Client</Filter>
+    </ClCompile>
+    <ClCompile Include="DBManager.cpp">
+      <Filter>DB</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
