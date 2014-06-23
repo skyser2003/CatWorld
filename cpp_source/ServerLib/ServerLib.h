@@ -20,6 +20,8 @@ public:
 	typedef UPtrMessage (ServerLib::*packetGenerator)();
 public:
 	void Init();
+	void Destroy();
+
 	void Parse(int msg, int length, void* buffer);
 	void Send(MSG& pks);
 

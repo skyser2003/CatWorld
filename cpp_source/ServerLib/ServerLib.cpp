@@ -39,6 +39,13 @@ void ServerLib::Init()
 {
 	RegisterPacket(LOGIN);
 	RegisterPacket(CHAT);
+
+	game->Init();
+}
+
+void ServerLib::Destroy()
+{
+	game->Destroy();
 }
 
 void ServerLib::Parse(int msg, int length, void* buffer)

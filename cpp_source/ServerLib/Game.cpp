@@ -21,3 +21,8 @@ void Game::Init()
 	db.reset(new DBManager());
 	db->Init("some_default_filename.sqlite3");
 }
+
+void Game::Destroy()
+{
+
+}
