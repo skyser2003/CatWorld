@@ -29,6 +29,7 @@ addInclude(binding, __dirname + "\\..\\External\\protobuf-2.5.0\\src");
 addInclude(binding, __dirname + "\\..\\External\\protobuf-2.5.0\\gtest\\include");
 addInclude(binding, __dirname + "\\..\\ServerLib");
 addInclude(binding, __dirname + "\\..\\Packet");
+addInclude(binding, __dirname + "\\..\\SQLite");
 
 var libprotobufLibName =  __dirname + "\\..\\External\\libprotobuf_";
 if (mode == "Debug") {
@@ -36,8 +37,8 @@ if (mode == "Debug") {
 }
 else if (mode == "Release") {
     libprotobufLibName += "Release.lib";
-
 }
+
 addLib(binding, libprotobufLibName);
 
 var directories = [];

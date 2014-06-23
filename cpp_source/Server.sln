@@ -9,24 +9,58 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Packet", "Packet\Packet.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerLib", "ServerLib\ServerLib.vcxproj", "{846B37B5-91CA-4157-A358-F7B67A71A9FD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SQLite", "SQLite\SQLite.vcxproj", "{BCB5420F-588A-44A1-A6F5-60975697F9FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
 		Debug|x64 = Debug|x64
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7238AD3D-D706-4D06-8BCB-1CC2DFEA6B98}.Debug|Mixed Platforms.ActiveCfg = Debug|x64
+		{7238AD3D-D706-4D06-8BCB-1CC2DFEA6B98}.Debug|Mixed Platforms.Build.0 = Debug|x64
+		{7238AD3D-D706-4D06-8BCB-1CC2DFEA6B98}.Debug|Win32.ActiveCfg = Debug|x64
 		{7238AD3D-D706-4D06-8BCB-1CC2DFEA6B98}.Debug|x64.ActiveCfg = Debug|x64
 		{7238AD3D-D706-4D06-8BCB-1CC2DFEA6B98}.Debug|x64.Build.0 = Debug|x64
+		{7238AD3D-D706-4D06-8BCB-1CC2DFEA6B98}.Release|Mixed Platforms.ActiveCfg = Release|x64
+		{7238AD3D-D706-4D06-8BCB-1CC2DFEA6B98}.Release|Mixed Platforms.Build.0 = Release|x64
+		{7238AD3D-D706-4D06-8BCB-1CC2DFEA6B98}.Release|Win32.ActiveCfg = Release|x64
 		{7238AD3D-D706-4D06-8BCB-1CC2DFEA6B98}.Release|x64.ActiveCfg = Release|x64
 		{7238AD3D-D706-4D06-8BCB-1CC2DFEA6B98}.Release|x64.Build.0 = Release|x64
+		{7EB73561-CE00-42E3-95D3-53E571D10C6A}.Debug|Mixed Platforms.ActiveCfg = Debug|x64
+		{7EB73561-CE00-42E3-95D3-53E571D10C6A}.Debug|Mixed Platforms.Build.0 = Debug|x64
+		{7EB73561-CE00-42E3-95D3-53E571D10C6A}.Debug|Win32.ActiveCfg = Debug|x64
 		{7EB73561-CE00-42E3-95D3-53E571D10C6A}.Debug|x64.ActiveCfg = Debug|x64
 		{7EB73561-CE00-42E3-95D3-53E571D10C6A}.Debug|x64.Build.0 = Debug|x64
+		{7EB73561-CE00-42E3-95D3-53E571D10C6A}.Release|Mixed Platforms.ActiveCfg = Release|x64
+		{7EB73561-CE00-42E3-95D3-53E571D10C6A}.Release|Mixed Platforms.Build.0 = Release|x64
+		{7EB73561-CE00-42E3-95D3-53E571D10C6A}.Release|Win32.ActiveCfg = Release|x64
 		{7EB73561-CE00-42E3-95D3-53E571D10C6A}.Release|x64.ActiveCfg = Release|x64
 		{7EB73561-CE00-42E3-95D3-53E571D10C6A}.Release|x64.Build.0 = Release|x64
+		{846B37B5-91CA-4157-A358-F7B67A71A9FD}.Debug|Mixed Platforms.ActiveCfg = Debug|x64
+		{846B37B5-91CA-4157-A358-F7B67A71A9FD}.Debug|Mixed Platforms.Build.0 = Debug|x64
+		{846B37B5-91CA-4157-A358-F7B67A71A9FD}.Debug|Win32.ActiveCfg = Debug|x64
 		{846B37B5-91CA-4157-A358-F7B67A71A9FD}.Debug|x64.ActiveCfg = Debug|x64
 		{846B37B5-91CA-4157-A358-F7B67A71A9FD}.Debug|x64.Build.0 = Debug|x64
+		{846B37B5-91CA-4157-A358-F7B67A71A9FD}.Release|Mixed Platforms.ActiveCfg = Release|x64
+		{846B37B5-91CA-4157-A358-F7B67A71A9FD}.Release|Mixed Platforms.Build.0 = Release|x64
+		{846B37B5-91CA-4157-A358-F7B67A71A9FD}.Release|Win32.ActiveCfg = Release|x64
 		{846B37B5-91CA-4157-A358-F7B67A71A9FD}.Release|x64.ActiveCfg = Release|x64
 		{846B37B5-91CA-4157-A358-F7B67A71A9FD}.Release|x64.Build.0 = Release|x64
+		{BCB5420F-588A-44A1-A6F5-60975697F9FA}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{BCB5420F-588A-44A1-A6F5-60975697F9FA}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{BCB5420F-588A-44A1-A6F5-60975697F9FA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BCB5420F-588A-44A1-A6F5-60975697F9FA}.Debug|Win32.Build.0 = Debug|Win32
+		{BCB5420F-588A-44A1-A6F5-60975697F9FA}.Debug|x64.ActiveCfg = Debug|Win32
+		{BCB5420F-588A-44A1-A6F5-60975697F9FA}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{BCB5420F-588A-44A1-A6F5-60975697F9FA}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{BCB5420F-588A-44A1-A6F5-60975697F9FA}.Release|Win32.ActiveCfg = Release|Win32
+		{BCB5420F-588A-44A1-A6F5-60975697F9FA}.Release|Win32.Build.0 = Release|Win32
+		{BCB5420F-588A-44A1-A6F5-60975697F9FA}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
