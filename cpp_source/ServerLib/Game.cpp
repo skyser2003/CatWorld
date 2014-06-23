@@ -24,5 +24,4 @@ void Game::Init()
 
 void Game::Destroy()
 {
-
 }
