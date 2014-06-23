@@ -13,7 +13,7 @@ function addLib(arr, path) {
 var mode = "Debug";
 
 // Generate binding.gyp
-var cppRegex = new RegExp(/^.*\.(cpp|pb\.cc)$/);
+var sourceRegex = new RegExp(/^.*\.(cpp|pb\.cc|c)$/);
 var targetName = "gameServer";
 
 var binding = {};
@@ -81,7 +81,7 @@ for (var i in directories) {
 
     for (var j in files) {
         var file = files[j];
-        if (cppRegex.test(file) === true) {
+        if (sourceRegex.test(file) === true) {
             console.log(file);
             binding.targets[0].sources.push(directories[i] + "\\" + file);
         }
