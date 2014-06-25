@@ -19,9 +19,14 @@ void Game::Init()
 	cm.reset(new ClientManager());
 
 	db.reset(new DBManager());
-	db->Init("db.sqlite3");
+	db->Init(rootPath + "/db.sqlite3");
 }
 
 void Game::Destroy()
 {
+}
+
+void Game::SetRootPath(const std::string& rootPath)
+{
+	this->rootPath = rootPath;
 }

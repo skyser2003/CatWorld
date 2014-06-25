@@ -68,12 +68,9 @@ var server = app.listen(app.get('port'), function () {
 
 var io = require('socket.io')(server);
 var cppServer = new gameServer.Server();
-
 var msgBuilder = ProtoBuf.loadProtoFile(__dirname + "/public/proto/Message.proto");
 var structBuilder = ProtoBuf.loadProtoFile(__dirname + "/public/proto/Struct.proto");
-
 var Packet = msgBuilder.build("Packet");
-
 
 // Init message - struct dictionary
 var table = [];
@@ -81,6 +78,9 @@ for (var msgName in Packet.Message) {
     var value = Packet.Message[msgName];
     table[value] = structBuilder.build(msgName);
 }
+
+// Set path
+cppServer.setRootPath(__dirname);
 
 // Socket.io
 io.on('connection', function (socket) {
@@ -94,7 +94,6 @@ io.on('connection', function (socket) {
         var sendPks = { "msg": msg, "data": sendStruct.toHex() };
         socket.emit("packet", sendPks);
     });
-
 
     // Receive
     socket.on('packet', function (data) {

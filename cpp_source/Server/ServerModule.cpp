@@ -1,6 +1,7 @@
 #include "ServerModule.h"
 
 #include <fstream>
+#include <algorithm>
 
 #include "node_buffer.h"
 
@@ -22,6 +23,9 @@ void ServerModule::Export(Handle<Object> exports)
 
 	tpl->PrototypeTemplate()->Set(String::NewSymbol("onSendMsg"),
 		FunctionTemplate::New(SetSendFunction)->GetFunction());
+
+	tpl->PrototypeTemplate()->Set(String::NewSymbol("setRootPath"),
+		FunctionTemplate::New(SetRootPath)->GetFunction());
 
 	constructor = Persistent<Function>::New(tpl->GetFunction());
 	exports->Set(String::NewSymbol("Server"), constructor);
@@ -94,6 +98,19 @@ Handle<Value> ServerModule::SetSendFunction(const v8::Arguments& args)
 	{
 		ServerModule::Send(msg, pks);
 	});
+
+	return scope.Close(Undefined());
+}
+
+Handle<Value> ServerModule::SetRootPath(const v8::Arguments& args)
+{
+	HandleScope scope;
+
+	v8::String::Utf8Value param1(args[0]->ToString());
+	std::string rootPath = *param1;
+	std::replace(rootPath.begin(), rootPath.end(), '\\', '/');
+
+	serverLib.SetRootPath(rootPath + "/");
 
 	return scope.Close(Undefined());
 }

@@ -76,6 +76,11 @@ void ServerLib::SetSendFunction(std::function<void(int, MSG&)> sendFunction)
 	this->sendFunction = sendFunction;
 }
 
+void ServerLib::SetRootPath(const std::string& rootPath)
+{
+	game->SetRootPath(rootPath);
+}
+
 template <class PKS>
 void ServerLib::RegisterHandler(google::protobuf::Message& pks)
 {

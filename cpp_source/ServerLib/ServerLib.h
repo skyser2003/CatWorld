@@ -26,6 +26,7 @@ public:
 	void Send(MSG& pks);
 
 	void SetSendFunction(std::function<void(int, MSG&)> sendFunction);
+	void SetRootPath(const std::string& rootPath);
 
 	template <class PKS>
 	void OnPacket(PKS& pks)

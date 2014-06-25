@@ -15,6 +15,7 @@ private:
 	static void Send(int msg, google::protobuf::Message& pks);
 
 	static Handle<Value> SetSendFunction(const v8::Arguments& args);
+	static Handle<Value> SetRootPath(const v8::Arguments& args);
 private:
 	static v8::Persistent<v8::Function> constructor;
 
