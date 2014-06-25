@@ -11,6 +11,7 @@ public:
 	static void Export(Handle<Object> exports);
 private:
 	static Handle<Value> New(const Arguments& args);
+	static Handle<Value> Init(const Arguments& args);
 	static Handle<Value> Parse(const v8::Arguments& args);
 	static void Send(int msg, google::protobuf::Message& pks);
 

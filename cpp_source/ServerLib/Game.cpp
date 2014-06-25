@@ -19,7 +19,7 @@ void Game::Init()
 	cm.reset(new ClientManager());
 
 	db.reset(new DBManager());
-	db->Init(rootPath + "/db.sqlite3");
+	db->Init(rootPath, "db.sqlite3");
 }
 
 void Game::Destroy()

@@ -18,6 +18,9 @@ void ServerModule::Export(Handle<Object> exports)
 	tpl->InstanceTemplate()->SetInternalFieldCount(1);
 
 	// Prototype
+	tpl->PrototypeTemplate()->Set(String::NewSymbol("init"),
+		FunctionTemplate::New(Init)->GetFunction());
+
 	tpl->PrototypeTemplate()->Set(String::NewSymbol("parse"),
 		FunctionTemplate::New(Parse)->GetFunction());
 
@@ -35,8 +38,6 @@ Handle<Value> ServerModule::New(const Arguments& args) {
 	HandleScope scope;
 
 	if (args.IsConstructCall()) {
-		serverLib.Init();
-
 		// Invoked as constructor: `new MyObject(...)`
 		auto* obj = new ServerModule();
 		obj->Wrap(args.This());
@@ -48,6 +49,15 @@ Handle<Value> ServerModule::New(const Arguments& args) {
 		Local<Value> argv[argc] = { args[0] };
 		return scope.Close(constructor->NewInstance(argc, argv));
 	}
+}
+
+Handle<Value> ServerModule::Init(const Arguments& args)
+{
+	HandleScope scope;
+
+	serverLib.Init();
+
+	return scope.Close(Undefined());
 }
 
 Handle<Value> ServerModule::Parse(const v8::Arguments& args)

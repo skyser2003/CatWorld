@@ -79,8 +79,9 @@ for (var msgName in Packet.Message) {
     table[value] = structBuilder.build(msgName);
 }
 
-// Set path
+// Initialize cppServer
 cppServer.setRootPath(__dirname);
+cppServer.init();
 
 // Socket.io
 io.on('connection', function (socket) {
