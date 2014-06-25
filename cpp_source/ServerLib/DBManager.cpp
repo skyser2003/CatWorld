@@ -13,13 +13,16 @@ void DBManager::Init(const std::string& rootPath, const std::string& filename)
 	{
 		// Initialize schema
 		std::ifstream scheme;
-		scheme.open(rootPath + "server_data/db_scheme.txt");
-		scheme.seekg(0, scheme.end);
-		int length = scheme.tellg();
+		std::string schemeQuery, temp;
 
-		std::string schemeQuery;
-		schemeQuery.resize(length, ' ');
-		scheme.read(&*schemeQuery.begin(), length);
+		scheme.open(rootPath + "server_data/db_scheme.txt");
+		while (scheme)
+		{
+			temp.clear();
+			std::getline(scheme, temp);
+			schemeQuery += '\n';
+			schemeQuery += temp;
+		}
 
 		sqlite3_exec(sqlite, schemeQuery.c_str(), nullptr, nullptr, &errmsg);
 

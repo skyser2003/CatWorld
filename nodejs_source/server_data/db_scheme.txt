@@ -1,2 +1,2 @@
-CREATE TABLE account(id STRING, pw STRING)
-CREATE TABLE character(name STRING)
+CREATE TABLE account(id STRING, pw STRING);
+CREATE TABLE character(name STRING);
