@@ -39,3 +39,6 @@ cpp_source/Server/binding.gyp
 cpp_source/Server/build
 cpp_source/Packet/Autogen
 nodejs_source/public/proto
+
+# Game db
+*.sqlite3
