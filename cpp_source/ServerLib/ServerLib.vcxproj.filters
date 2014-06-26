@@ -16,6 +16,18 @@
     <Filter Include="DB">
       <UniqueIdentifier>{e5e62846-7e04-4d73-96f1-98850ae3a43b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Field">
+      <UniqueIdentifier>{99377e2d-60d4-4f11-81c2-16b3027bdb9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Field\FieldObject">
+      <UniqueIdentifier>{3f30c0e0-d817-4344-ad44-2861b2b3fe60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Field\FieldMap">
+      <UniqueIdentifier>{d379677f-6f9c-4fc6-ba66-5fc6beea80b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Field\FIeldObjectComponent">
+      <UniqueIdentifier>{7cbdaab5-8a0a-484a-9ed7-56c35090c362}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServerLib.h">
@@ -35,6 +47,15 @@
     </ClInclude>
     <ClInclude Include="DBManager.h">
       <Filter>DB</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldObject.h">
+      <Filter>Field\FieldObject</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldObjectComponent.h">
+      <Filter>Field\FIeldObjectComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldMap.h">
+      <Filter>Field\FieldMap</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +79,15 @@
     </ClCompile>
     <ClCompile Include="DBManager.cpp">
       <Filter>DB</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldObject.cpp">
+      <Filter>Field\FieldObject</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldObjectComponent.cpp">
+      <Filter>Field\FIeldObjectComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldMap.cpp">
+      <Filter>Field\FieldMap</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
