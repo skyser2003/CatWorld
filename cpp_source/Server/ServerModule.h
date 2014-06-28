@@ -5,6 +5,7 @@
 #include <functional>
 
 #include <node.h>
+#include <google/protobuf/message.h>
 #include "ServerLib.h"
 
 using namespace v8;

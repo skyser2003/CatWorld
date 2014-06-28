@@ -10,3 +10,4 @@
 
 // External libraries
 #include "sqlite3.h"
+#include <google/protobuf/message.h>

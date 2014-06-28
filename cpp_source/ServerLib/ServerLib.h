@@ -1,7 +1,5 @@
 #pragma once
 
-#include <google/protobuf/message.h>
-
 class Game;
 
 class ServerLib
