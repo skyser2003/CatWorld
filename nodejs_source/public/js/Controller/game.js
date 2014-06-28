@@ -5,6 +5,8 @@ var Game = function () {
     this.player = new FieldObject();
 
     this.init() = function () {
+    this.init = function () {
+        pm.setReceiveFunc(onReceivePacket);
         initControl();
     };
 
@@ -33,5 +35,12 @@ var Game = function () {
                     break;
             }
         });
+    };
+
+    var onReceivePacket = function (pksName, pks) {
+        var handlerFunc = eval("onPacket_" + pksName);
+        if (handlerFunc !== undefined) {
+            handlerFunc(pks);
+        }
     };
 };
