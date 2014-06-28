@@ -42,13 +42,15 @@ var PacketManager = function()
         var hex = data.data;
 
         var struct = strTable[msg];
+        var struct = strTable[msg];
         var decoded = struct.decodeHex(hex);
+        var pksName = decoded.toString().substr(1, decoded.toString().length - 1);
 
-        self.receiveCallback(decoded);
+        self.receiveCallback(pksName, decoded);
     });
 
     // Generate pks
-    this.getInstance = function (pksName) {
+    this.createInstance = function (pksName) {
         var msg = msgTable[pksName];
         if (msg === undefined) {
             return null;
