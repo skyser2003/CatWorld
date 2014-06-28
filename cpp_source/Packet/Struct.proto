@@ -6,6 +6,11 @@ message LOGIN
 	required string pw = 2;
 }
 
+message LOGIN_RESULT
+{
+	required int32 result = 1;
+}
+
 message CHAT
 {
 	required string msg = 1;

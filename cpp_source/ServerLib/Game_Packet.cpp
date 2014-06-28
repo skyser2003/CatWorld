@@ -15,6 +15,10 @@ void Game::OnPacket(LOGIN& pks)
 {
 	auto client = cm->CreateNewClient();
 	client->Init(pks.id(), pks.pw());
+
+	LOGIN_RESULT outPKS;
+	outPKS.set_result(1);
+	Send(outPKS);
 }
 
 template <>

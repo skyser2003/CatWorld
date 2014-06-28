@@ -3,6 +3,7 @@ message Packet
 	enum Message
 	{
 		LOGIN = 1;
-		CHAT = 2;
+		LOGIN_RESULT = 2;
+		CHAT = 3;
 	}
 }
