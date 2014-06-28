@@ -6,14 +6,14 @@ var FieldObjectFSM = {
 var FieldObjectFSM_IDLE = function (fieldObject) {
     this.fieldObject = fieldObject;
 
-    this.onBegin() = function () {
+    this.onBegin = function () {
     };
 
-    this.onUpdate() = function () {
+    this.onUpdate = function () {
 
     };
 
-    this.onEnd() = function () {
+    this.onEnd = function () {
 
     };
 };
@@ -25,11 +25,11 @@ var FieldObjectFSM_MOVE = function (fieldObject) {
 
     };
 
-    this.onUpate() = function () {
+    this.onUpate = function () {
 
     };
 
-    this.onEnd() = function () {
+    this.onEnd = function () {
 
     };
 };

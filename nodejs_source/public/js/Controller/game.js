@@ -8,7 +8,7 @@ var Game = function () {
         initControl();
     };
 
-    var initControol = function () {
+    var initControl = function () {
         jQuery(document).keydown(function (e) {
             switch (e.keyCode) {
                 case 65: // a

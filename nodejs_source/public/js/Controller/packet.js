@@ -13,6 +13,7 @@ var PacketManager = function()
     // Init message - struct dictionary
     var strTable = [];
     var msgTable = {};
+
     for (var msgName in Packet.Message) {
         var value = Packet.Message[msgName];
         strTable[value] = structBuilder.build(msgName);
@@ -22,7 +23,7 @@ var PacketManager = function()
     // Send
     this.send = function (pks) {
         var pksName = pks.toString().substr(1, pks.toString().length - 1);
-        var msg = msgtable[pksName];
+        var msg = msgTable[pksName];
 
         var packet = { msg: "", data: "" };
         packet.msg = msg;
