@@ -19,13 +19,60 @@
 </head>
 <body>
     <script type="text/javascript">
+
+        // Init scene
         var scene = new THREE.Scene();
         var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.x = 5;
+        camera.position.y = -5;
+        camera.position.z = 5;
+        camera.up = new THREE.Vector3(-1, 1, 1);
+        camera.lookAt(new THREE.Vector3(-1, 1, -1));
 
         var renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.domElement.id = "canvas";
         document.body.appendChild(renderer.domElement);
 
+        // Init keyboard
+        jQuery(document).keydown(function (e) {
+            switch (e.keyCode) {
+                case 65: // a
+                    {
+                        --cube.position.x;
+                        for (var i in edgeCubes) {
+                            --edgeCubes[i].position.x;
+                        }
+                    }
+                    break;
+                case 83: // s
+                    {
+                        --cube.position.y;
+                        for (var i in edgeCubes) {
+                            --edgeCubes[i].position.y;
+                        }
+                    }
+                    break;
+                case 68: // d
+                    {
+                        ++cube.position.x;
+                        for (var i in edgeCubes) {
+                            ++edgeCubes[i].position.x;
+                        }
+                    }
+                    break;
+                case 87: // w
+                    {
+                        ++cube.position.y;
+                        for (var i in edgeCubes) {
+                            ++edgeCubes[i].position.y;
+                        }
+                    }
+                    break;
+            }
+        });
+
+        // Init test object
         var geometry = new THREE.BoxGeometry(1, 1, 1);
         var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
         var cube = new THREE.Mesh(geometry, material);
@@ -66,8 +113,6 @@
             var edgeMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
 
             for (var j in edgePositions[i]) {
-                console.log(i + " : " + j);
-
                 var edgeLine = new THREE.Mesh(edgeGeometry, edgeMaterial);
 
                 edgeLine.position.x = edgePositions[i][j][0];
@@ -79,17 +124,15 @@
             }
         }
 
-        camera.position.z = 5;
-
         var render = function () {
             requestAnimationFrame(render);
 
-            cube.rotation.x += 0.1;
-            cube.rotation.y += 0.1;
+            //cube.rotation.x += 0.1;
+            //cube.rotation.y += 0.1;
 
             for (var i in edgeCubes) {
-                edgeCubes[i].rotation.x += 0.1;
-                edgeCubes[i].rotation.y += 0.1;
+                //edgeCubes[i].rotation.x += 0.1;
+                //edgeCubes[i].rotation.y += 0.1;
             }
 
             renderer.render(scene, camera);
