@@ -5,45 +5,17 @@
 
     <link rel="stylesheet" href="/css/index.css" />
 
+    <!--External Library-->
+    <script src="/js/Extern/jquery.min.js"></script>
     <script src="/js/Graphic/three.min.js"></script>
     <script src="/js/Protobuf/Long.min.js"></script>
     <script src="/js/Protobuf/ByteBufferAB.min.js"></script>
     <script src="/js/Protobuf/ProtoBuf.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-        var socket = io();
-        var ProtoBuf = dcodeIO.ProtoBuf;
-        var msgBuilder = ProtoBuf.loadProtoFile("proto/Message.proto");
-        var structBuilder = ProtoBuf.loadProtoFile("proto/Struct.proto");
 
-        var Packet = msgBuilder.build("Packet");
-
-        // Init message - struct dictionary
-        var table = [];
-        for (var msgName in Packet.Message) {
-            var value = Packet.Message[msgName];
-            table[value] = structBuilder.build(msgName);
-        }
-
-        var packet = { msg: "", data: "" };
-
-        var LOGIN = structBuilder.build("LOGIN");
-        var send = new LOGIN({ "id": "skyser2003", "pw": 4 });
-        packet.msg = msgBuilder.build("Packet").Message.LOGIN;
-        packet.data = send.toHex();
-
-        socket.emit("packet", packet);
-
-        socket.on("packet", function (data) {
-            var msg = data.msg;
-            var hex = data.data;
-
-            var struct = table[msg];
-            var decoded = struct.decodeHex(hex);
-
-            console.log(decoded);
-        });
-    </script>
+    <!--Game source-->
+    <script src="/js/Controller/packet.js"></script>
+    <script src="/js/main.js"></script>
 </head>
 <body>
     <script type="text/javascript">
