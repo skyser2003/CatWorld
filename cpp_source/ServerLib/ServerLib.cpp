@@ -74,6 +74,10 @@ void ServerLib::Send(MSG& pks)
 void ServerLib::SetSendFunction(std::function<void(int, MSG&)> sendFunction)
 {
 	this->sendFunction = sendFunction;
+	game->SetSendFunction([this](MSG& pks)
+	{
+		Send(pks);
+	});
 }
 
 void ServerLib::SetRootPath(const std::string& rootPath)
