@@ -38,6 +38,7 @@ ServerLib::~ServerLib()
 void ServerLib::Init()
 {
 	RegisterPacket(LOGIN);
+	RegisterPacket(LOGIN_RESULT);
 	RegisterPacket(CHAT);
 
 	game->Init();

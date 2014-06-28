@@ -22,6 +22,12 @@ void Game::OnPacket(LOGIN& pks)
 }
 
 template <>
+void Game::OnPacket(LOGIN_RESULT& pks)
+{
+
+}
+
+template <>
 void Game::OnPacket(CHAT& pks)
 {
 
