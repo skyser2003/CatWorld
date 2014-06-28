@@ -4,10 +4,14 @@ var Game = function () {
 
     this.player = new FieldObject();
 
-    this.init() = function () {
     this.init = function () {
         pm.setReceiveFunc(onReceivePacket);
         initControl();
+
+        var pks = pm.createInstance("LOGIN");
+        pks.id = "skyser2003";
+        pks.pw = "0000";
+        pm.send(pks);
     };
 
     var initControl = function () {
@@ -42,5 +46,9 @@ var Game = function () {
         if (handlerFunc !== undefined) {
             handlerFunc(pks);
         }
+    };
+
+    var onPacket_LOGIN_RESULT = function (pks) {
+        console.log(pks.result);
     };
 };

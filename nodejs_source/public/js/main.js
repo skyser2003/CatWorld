@@ -1,4 +1,7 @@
 jQuery(document).ready(function () {
+    var game = new Game();
+    game.init();
+
     // Init scene
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
