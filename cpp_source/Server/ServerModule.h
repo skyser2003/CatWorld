@@ -1,5 +1,9 @@
 #pragma once
 
+#include <memory>
+#include <unordered_map>
+#include <functional>
+
 #include <node.h>
 #include "ServerLib.h"
 
