@@ -5,9 +5,9 @@
 #include "ClientManager.h"
 #include "Client.h"
 
-void Game::Send(MSG& pks)
+void Game::Send(int msg, MSG& pks)
 {
-	sendFunc(pks);
+	sendFunc(msg, pks);
 }
 
 template <>
@@ -18,7 +18,7 @@ void Game::OnPacket(LOGIN& pks)
 
 	LOGIN_RESULT outPKS;
 	outPKS.set_result(1);
-	Send(outPKS);
+	Send(Packet::LOGIN_RESULT, outPKS);
 }
 
 template <>

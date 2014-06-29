@@ -18,7 +18,7 @@ public:
 	void Destroy();
 
 	void Parse(int msg, int length, void* buffer);
-	void Send(MSG& pks);
+	void Send(int msg, MSG& pks);
 
 	void SetSendFunction(std::function<void(int, MSG&)> sendFunction);
 	void SetRootPath(const std::string& rootPath);

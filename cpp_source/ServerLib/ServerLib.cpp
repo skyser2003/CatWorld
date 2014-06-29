@@ -38,7 +38,6 @@ ServerLib::~ServerLib()
 void ServerLib::Init()
 {
 	RegisterPacket(LOGIN);
-	RegisterPacket(LOGIN_RESULT);
 	RegisterPacket(CHAT);
 
 	game->Init();
@@ -67,17 +66,17 @@ void ServerLib::Parse(int msg, int length, void* buffer)
 	(this->*handlerFunc)(*msgStruct.get());
 }
 
-void ServerLib::Send(MSG& pks)
+void ServerLib::Send(int msg, MSG& pks)
 {
-	sendFunction(msgList[pks.GetTypeName()], pks);
+	sendFunction(msg, pks);
 }
 
 void ServerLib::SetSendFunction(std::function<void(int, MSG&)> sendFunction)
 {
 	this->sendFunction = sendFunction;
-	game->SetSendFunction([this](MSG& pks)
+	game->SetSendFunction([this](int msg, MSG& pks)
 	{
-		Send(pks);
+		Send(msg, pks);
 	});
 }
 

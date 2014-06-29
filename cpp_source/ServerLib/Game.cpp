@@ -31,7 +31,7 @@ void Game::SetRootPath(const std::string& rootPath)
 	this->rootPath = rootPath;
 }
 
-void Game::SetSendFunction(std::function<void(MSG&)> sendFunc)
+void Game::SetSendFunction(std::function<void(int, MSG&)> sendFunc)
 {
 	this->sendFunc = sendFunc;
 }

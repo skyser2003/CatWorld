@@ -16,13 +16,13 @@ public:
 	void Destroy();
 
 	void SetRootPath(const std::string& rootPath);
-	void SetSendFunction(std::function<void(MSG&)> sendFunc);
+	void SetSendFunction(std::function<void(int, MSG&)> sendFunc);
 
-	void Send(MSG& pks);
+	void Send(int msg, MSG& pks);
 	template <class PKS>
 	void OnPacket(PKS& pks);
 private:
-	std::function<void(MSG&)> sendFunc;
+	std::function<void(int, MSG&)> sendFunc;
 
 	std::unique_ptr<ClientManager> cm;
 	std::unique_ptr<DBManager> db;
