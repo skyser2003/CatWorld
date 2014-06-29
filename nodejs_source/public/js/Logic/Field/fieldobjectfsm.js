@@ -25,21 +25,30 @@ var FieldObjectFSM_MOVE = function (fieldObject) {
         self.moveDist = fieldObject.dest.sub(fieldObject.pos);
     };
 
-    this.onUpate = function (dt) {
+    this.onUpdate = function (dt) {
+        if (fieldObject.pos.equal(fieldObject.dest)) {
+            fieldObject.changeFSM("IDLE");
+            return;
+        }
+
         var moveDist = fieldObject.dest.sub(fieldObject.pos);
         var magnitude = moveDist.magnitude();
 
-        var dx = Math.min(moveDist.x / magnitude * fieldObject.moveSpeed * dt / 1000, movDist.x);
-        var dy = Math.min(moveDist.y / magnitude * fieldObject.moveSpeed * dt / 1000, moveDist.y);
-        var dz = Math.min(moveDist.z / magnitude * fieldObject.moveSpeed * dt / 1000, moveDist.z);
+        var signX = moveDist.x >= 0 ? 1 : -1;
+        var signY = moveDist.y >= 0 ? 1 : -1;
+        var signZ = moveDist.z >= 0 ? 1 : -1;
 
-        fieldObject.pos.x += dx;
-        fieldObject.pos.y += dy;
-        fieldObject.pos.z += dz;
+        var absX = Math.abs(moveDist.x);
+        var absY = Math.abs(moveDist.y);
+        var absZ = Math.abs(moveDist.z);
 
-        if (fieldObject.pos.equal(fieldObject.dest)) {
-            fieldObject.changeFSM("IDLE");
-        }
+        var dx = Math.min(absX / magnitude * fieldObject.moveSpeed * dt / 1000, absX);
+        var dy = Math.min(absY / magnitude * fieldObject.moveSpeed * dt / 1000, absY);
+        var dz = Math.min(absZ / magnitude * fieldObject.moveSpeed * dt / 1000, absZ);
+
+        fieldObject.pos.x += dx * signX;
+        fieldObject.pos.y += dy * signY;
+        fieldObject.pos.z += dz * signZ;
     };
 
     this.onEnd = function () {

@@ -26,6 +26,10 @@ var Game = function () {
         initRenderer();
     };
 
+    this.update = function (dt) {
+        self.player.update(dt);
+    }
+
     var onReceivePacket = function (pksName, pks) {
         var handlerFunc = eval("onPacket_" + pksName);
         if (handlerFunc !== undefined) {
@@ -115,8 +119,13 @@ var Game = function () {
 
         var render = function () {
             requestAnimationFrame(render);
+            cube.position.x = self.player.pos.x;
+            cube.position.y = self.player.pos.y;
+            cube.position.z = self.player.pos.z;
+
+            renderer.render(scene, camera);
         };
 
-        renderer.render(scene, camera);
+        render();
     };
 };

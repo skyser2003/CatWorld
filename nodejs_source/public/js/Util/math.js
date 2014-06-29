@@ -28,9 +28,9 @@ var Vector3 = function () {
 
     this.sub = function (target) {
         var ret = new Vector3();
-        ret.x = self.x = target.x;
-        ret.y = self.y = target.y;
-        ret.z = self.z = target.z;
+        ret.x = self.x - target.x;
+        ret.y = self.y - target.y;
+        ret.z = self.z - target.z;
 
         return ret;
     };
