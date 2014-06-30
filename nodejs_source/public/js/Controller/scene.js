@@ -6,6 +6,7 @@ var GameScene = function () {
     var self = this;
 
     var game = new Game();
+    var isMoveKeyDown = false;
 
     this.init = function () {
         game.init();
@@ -23,30 +24,66 @@ var GameScene = function () {
             switch (e.keyCode) {
                 case 65: // a
                     {
+                        if (isMoveKeyDown) {
+                            return;
+                        }
+
                         var dest = game.player.pos.clone();
                         dest.x -= moveDist;
                         game.player.moveTo(dest);
+
+                        isMoveKeyDown = true;
                     }
                     break;
                 case 83: // s
                     {
+                        if (isMoveKeyDown) {
+                            return;
+                        }
+
                         var dest = game.player.pos.clone();
                         dest.y -= moveDist;
                         game.player.moveTo(dest);
+
+                        isMoveKeyDown = true;
                     }
                     break;
                 case 68: // d
                     {
+                        if (isMoveKeyDown) {
+                            return;
+                        }
+
                         var dest = game.player.pos.clone();
                         dest.x += moveDist;
                         game.player.moveTo(dest);
+
+                        isMoveKeyDown = true;
                     }
                     break;
                 case 87: // w
                     {
+                        if (isMoveKeyDown) {
+                            return;
+                        }
+
                         var dest = game.player.pos.clone();
                         dest.y += moveDist;
                         game.player.moveTo(dest);
+
+                        isMoveKeyDown = true;
+                    }
+                    break;
+            }
+        });
+        jQuery(document).keyup(function (e) {
+            switch (e.keyCode) {
+                case 65: // a
+                case 83: // s
+                case 68: // d
+                case 87: // w
+                    {
+                        isMoveKeyDown = false;
                     }
                     break;
             }

@@ -9,6 +9,9 @@ var FieldObject = function () {
     this.fsm = new FieldObjectFSM_IDLE(this);
 
     this.moveTo = function (pos) {
+        if (self.fsmEnum === FieldObjectFSM.STATE_MOVE) {
+            return;
+        }
         self.dest = pos;
         self.changeFSM("MOVE");
     }
