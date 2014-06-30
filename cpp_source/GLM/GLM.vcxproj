@@ -205,7 +205,6 @@
     <ClInclude Include="glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="glm\detail\dummy.cpp" />
     <ClCompile Include="glm\detail\glm.cpp" />
   </ItemGroup>
   <ItemGroup>
