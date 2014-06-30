@@ -85,6 +85,16 @@ void ServerLib::SetRootPath(const std::string& rootPath)
 }
 
 template <class PKS>
+void ServerLib::OnPacket(const std::string& uid, PKS& pks)
+{
+	auto client = cm->Get(uid);
+	if (client != nullptr)
+	{
+		client->OnPacket(pks);
+	}
+}
+
+template <class PKS>
 void ServerLib::RegisterHandler(const std::string& uid, google::protobuf::Message& pks)
 {
 	OnPacket(uid, static_cast<PKS&>(pks));

@@ -1,10 +1,8 @@
 #pragma once
 
 class Game;
+class ClientManager;
 class DBManager;
-
-#include "ClientManager.h"
-#include "Client.h"
 
 class ServerLib
 {
@@ -26,17 +24,10 @@ public:
 
 	void SetSendFunction(std::function<void(int, MSG&)> sendFunction);
 	void SetRootPath(const std::string& rootPath);
-
-	template <class PKS>
-	void OnPacket(const std::string& uid, PKS& pks)
-	{
-		auto client = cm->Get(uid);
-		if (client != nullptr)
-		{
-			client->OnPacket(pks);
-		}
-	}
 private:
+	template <class PKS>
+	void OnPacket(const std::string& uid, PKS& pks);
+
 	template <class PKS>
 	void RegisterHandler(const std::string& uid, MSG& pks);
 	template <class PKS>
