@@ -1,6 +1,10 @@
 #pragma once
 
 class Game;
+class DBManager;
+
+#include "ClientManager.h"
+#include "Client.h"
 
 class ServerLib
 {
@@ -11,30 +15,35 @@ public:
 	typedef google::protobuf::Message MSG;
 	typedef std::unique_ptr<MSG> UPtrMessage;
 
-	typedef void (ServerLib::*packetHandler)(MSG&);
+	typedef void (ServerLib::*packetHandler)(const std::string&, MSG&);
 	typedef UPtrMessage (ServerLib::*packetGenerator)();
 public:
 	void Init();
 	void Destroy();
 
-	void Parse(int msg, int length, void* buffer);
+	void Parse(const std::string& uid, int msg, int length, void* buffer);
 	void Send(int msg, MSG& pks);
 
 	void SetSendFunction(std::function<void(int, MSG&)> sendFunction);
 	void SetRootPath(const std::string& rootPath);
 
 	template <class PKS>
-	void OnPacket(PKS& pks)
+	void OnPacket(const std::string& uid, PKS& pks)
 	{
-		game->OnPacket(pks);
+		auto client = cm->Get(uid);
+		if (client != nullptr)
+		{
+			client->OnPacket(pks);
+		}
 	}
 private:
 	template <class PKS>
-	void RegisterHandler(MSG& pks);
+	void RegisterHandler(const std::string& uid, MSG& pks);
 	template <class PKS>
 	UPtrMessage GenerateHandler();
 
-	void CallPacketHandler(int msg);
+	// Setting
+	std::string rootPath;
 
 	// Packet
 	std::function<void(int, MSG&)> sendFunction;
@@ -44,6 +53,7 @@ private:
 
 	std::unordered_map<std::string, int> msgList;
 
-	// Game
-	std::unique_ptr<Game> game;
+	// Logic
+	std::unique_ptr<ClientManager> cm;
+	std::unique_ptr<DBManager> db;
 };

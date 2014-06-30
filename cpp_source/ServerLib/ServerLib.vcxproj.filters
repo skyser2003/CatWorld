@@ -10,9 +10,6 @@
     <Filter Include="PCH">
       <UniqueIdentifier>{0037f4b5-666a-494f-8879-8163f04a09be}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game">
-      <UniqueIdentifier>{1464d585-9f30-4b05-975e-bdf15be56a71}</UniqueIdentifier>
-    </Filter>
     <Filter Include="DB">
       <UniqueIdentifier>{e5e62846-7e04-4d73-96f1-98850ae3a43b}</UniqueIdentifier>
     </Filter>
@@ -38,9 +35,6 @@
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>PCH</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="ClientManager.h">
       <Filter>Client</Filter>
@@ -68,12 +62,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game_Packet.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="ClientManager.cpp">
       <Filter>Client</Filter>
     </ClCompile>
@@ -88,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="FieldMap.cpp">
       <Filter>Field\FieldMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Client_Packet.cpp">
+      <Filter>Client</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

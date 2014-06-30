@@ -15,3 +15,8 @@ message CHAT
 {
 	required string msg = 1;
 }
+
+message MOVE
+{
+
+}

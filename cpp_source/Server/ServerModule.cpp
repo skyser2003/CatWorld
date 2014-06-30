@@ -63,12 +63,15 @@ Handle<Value> ServerModule::Init(const Arguments& args)
 Handle<Value> ServerModule::Parse(const v8::Arguments& args)
 {
 	HandleScope scope;
-	int msg = args[0]->Int32Value();
-	auto bufferObj = args[1]->ToObject();
+
+	v8::String::Utf8Value param1(args[0]->ToString());
+	std::string uid = *param1;
+	int msg = args[1]->Int32Value();
+	auto bufferObj = args[2]->ToObject();
 	int length = bufferObj->GetIndexedPropertiesExternalArrayDataLength();
 	void* buffer = static_cast<void*>(bufferObj->GetIndexedPropertiesExternalArrayData());
 
-	serverLib.Parse(msg, length, buffer);
+	serverLib.Parse(uid, msg, length, buffer);
 
 	return scope.Close(Undefined());
 }

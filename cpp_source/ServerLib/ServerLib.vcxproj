@@ -75,7 +75,6 @@
     <ClInclude Include="DBManager.h" />
     <ClInclude Include="FieldObject.h" />
     <ClInclude Include="FieldObjectComponent.h" />
-    <ClInclude Include="Game.h" />
     <ClInclude Include="FieldMap.h" />
     <ClInclude Include="ServerLib.h" />
     <ClInclude Include="stdafx.h" />
@@ -83,11 +82,10 @@
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ClientManager.cpp" />
+    <ClCompile Include="Client_Packet.cpp" />
     <ClCompile Include="DBManager.cpp" />
     <ClCompile Include="FieldObject.cpp" />
     <ClCompile Include="FieldObjectComponent.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Game_Packet.cpp" />
     <ClCompile Include="FieldMap.cpp" />
     <ClCompile Include="ServerLib.cpp" />
     <ClCompile Include="stdafx.cpp">

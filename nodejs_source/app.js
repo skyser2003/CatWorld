@@ -85,7 +85,6 @@ cppServer.init();
 
 // Socket.io
 io.on('connection', function (socket) {
-
     // Send
     cppServer.onSendMsg(function (msg, pks) {
         var struct = table[msg];
@@ -105,6 +104,6 @@ io.on('connection', function (socket) {
         var decoded = struct.decodeHex(hex);
         var newMsg = new struct(decoded.toRaw());
 
-        cppServer.parse(msg, newMsg.toBuffer());
+        cppServer.parse(socket.id, msg, newMsg.toBuffer());
     });
 });

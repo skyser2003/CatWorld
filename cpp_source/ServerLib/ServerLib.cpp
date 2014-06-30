@@ -5,7 +5,9 @@
 using namespace std;
 
 #include "Autogen/Struct.pb.h"
-#include "Game.h"
+#include "Client.h"
+#include "ClientManager.h"
+#include "DBManager.h"
 
 #define RegisterPacket(name)\
 {\
@@ -27,12 +29,10 @@ using namespace std;
 
 ServerLib::ServerLib()
 {
-	game.reset(new Game());
 }
 
 ServerLib::~ServerLib()
 {
-
 }
 
 void ServerLib::Init()
@@ -40,15 +40,18 @@ void ServerLib::Init()
 	RegisterPacket(LOGIN);
 	RegisterPacket(CHAT);
 
-	game->Init();
+	// Logic
+	cm.reset(new ClientManager());
+
+	db.reset(new DBManager());
+	db->Init(rootPath, "db.sqlite3");
 }
 
 void ServerLib::Destroy()
 {
-	game->Destroy();
 }
 
-void ServerLib::Parse(int msg, int length, void* buffer)
+void ServerLib::Parse(const std::string& uid, int msg, int length, void* buffer)
 {
 	auto it = generatorList.find(msg);
 	auto it2 = handlerList.find(msg);
@@ -63,7 +66,7 @@ void ServerLib::Parse(int msg, int length, void* buffer)
 	msgStruct->ParseFromArray(buffer, length);
 
 	auto handlerFunc = it2->second;
-	(this->*handlerFunc)(*msgStruct.get());
+	(this->*handlerFunc)(uid, *msgStruct.get());
 }
 
 void ServerLib::Send(int msg, MSG& pks)
@@ -74,21 +77,17 @@ void ServerLib::Send(int msg, MSG& pks)
 void ServerLib::SetSendFunction(std::function<void(int, MSG&)> sendFunction)
 {
 	this->sendFunction = sendFunction;
-	game->SetSendFunction([this](int msg, MSG& pks)
-	{
-		Send(msg, pks);
-	});
 }
 
 void ServerLib::SetRootPath(const std::string& rootPath)
 {
-	game->SetRootPath(rootPath);
+	this->rootPath = rootPath;
 }
 
 template <class PKS>
-void ServerLib::RegisterHandler(google::protobuf::Message& pks)
+void ServerLib::RegisterHandler(const std::string& uid, google::protobuf::Message& pks)
 {
-	OnPacket(static_cast<PKS&>(pks));
+	OnPacket(uid, static_cast<PKS&>(pks));
 }
 
 template <class PKS>
@@ -97,7 +96,15 @@ ServerLib::UPtrMessage ServerLib::GenerateHandler()
 	return unique_ptr<PKS>(new PKS());
 }
 
-void ServerLib::CallPacketHandler(int msg)
-{
+// OnPacket specialization
 
+template <>
+void ServerLib::OnPacket(const std::string& uid, LOGIN& pks)
+{
+	auto client = cm->CreateNewClient(uid);
+	client->Init(pks.id(), pks.pw());
+
+	LOGIN_RESULT outPKS;
+	outPKS.set_result(1);
+	Send(Packet::LOGIN_RESULT, outPKS);
 }

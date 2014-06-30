@@ -10,7 +10,8 @@ public:
 	ClientManager();
 	~ClientManager();
 
-	SPtrClient CreateNewClient();
+	SPtrClient CreateNewClient(const std::string& uid);
+	SPtrClient Get(const std::string& uid);
 private:
-	std::unordered_map<int, SPtrClient> clientList;
+	std::unordered_map<std::string, SPtrClient> clientList;
 };
