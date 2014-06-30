@@ -1,6 +1,7 @@
 #pragma once
 
 class ServerLib;
+class FieldObject;
 
 class Client
 {
@@ -18,4 +19,6 @@ private:
 
 	std::string id;
 	std::string pw;
+
+	std::shared_ptr<FieldObject> pc;
 };
