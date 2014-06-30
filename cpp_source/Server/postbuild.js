@@ -30,6 +30,7 @@ addInclude(binding, __dirname + "\\..\\External\\protobuf-2.5.0\\gtest\\include"
 addInclude(binding, __dirname + "\\..\\ServerLib");
 addInclude(binding, __dirname + "\\..\\Packet");
 addInclude(binding, __dirname + "\\..\\SQLite");
+addInclude(binding, __dirname + "\\..\\GLM");
 
 var libprotobufLibName =  __dirname + "\\..\\External\\libprotobuf_";
 if (mode == "Debug") {

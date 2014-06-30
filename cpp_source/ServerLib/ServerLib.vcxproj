@@ -44,7 +44,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Packet;../External/protobuf-2.5.0/src;../SQLite</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Packet;../External/protobuf-2.5.0/src;../SQLite;../GLM</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
@@ -59,7 +59,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Packet;../External/protobuf-2.5.0/src;../SQLite</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Packet;../External/protobuf-2.5.0/src;../SQLite;../GLM</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
@@ -94,6 +94,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GLM\GLM.vcxproj">
+      <Project>{fd0b633c-410c-48af-b67c-2842b974d37d}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
     <ProjectReference Include="..\Packet\Packet.vcxproj">
       <Project>{7eb73561-ce00-42e3-95d3-53e571d10c6a}</Project>
       <Private>false</Private>
@@ -104,6 +112,11 @@
     </ProjectReference>
     <ProjectReference Include="..\SQLite\SQLite.vcxproj">
       <Project>{bcb5420f-588a-44a1-a6f5-60975697f9fa}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
