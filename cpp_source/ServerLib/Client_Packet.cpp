@@ -8,3 +8,9 @@ void Client::OnPacket(CHAT& pks)
 {
 
 }
+
+template <>
+void Client::OnPacket(MOVE& pks)
+{
+
+}

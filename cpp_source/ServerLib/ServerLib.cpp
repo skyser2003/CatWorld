@@ -39,6 +39,7 @@ void ServerLib::Init()
 {
 	RegisterPacket(LOGIN);
 	RegisterPacket(CHAT);
+	RegisterPacket(MOVE);
 
 	// Logic
 	cm.reset(new ClientManager());
