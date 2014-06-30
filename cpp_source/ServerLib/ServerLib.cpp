@@ -112,7 +112,7 @@ template <>
 void ServerLib::OnPacket(const std::string& uid, LOGIN& pks)
 {
 	auto client = cm->CreateNewClient(uid);
-	client->Init(pks.id(), pks.pw());
+	client->Init(this, pks.id(), pks.pw());
 
 	LOGIN_RESULT outPKS;
 	outPKS.set_result(1);
