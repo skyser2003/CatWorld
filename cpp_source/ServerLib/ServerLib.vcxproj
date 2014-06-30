@@ -76,6 +76,9 @@
     <ClInclude Include="FieldObject.h" />
     <ClInclude Include="FieldObjectComponent.h" />
     <ClInclude Include="FieldMap.h" />
+    <ClInclude Include="FieldObjectFSM.h" />
+    <ClInclude Include="FSM_IDLE.h" />
+    <ClInclude Include="FSM_MOVE.h" />
     <ClInclude Include="ServerLib.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -87,6 +90,9 @@
     <ClCompile Include="FieldObject.cpp" />
     <ClCompile Include="FieldObjectComponent.cpp" />
     <ClCompile Include="FieldMap.cpp" />
+    <ClCompile Include="FieldObjectFSM.cpp" />
+    <ClCompile Include="FSM_IDLE.cpp" />
+    <ClCompile Include="FSM_MOVE.cpp" />
     <ClCompile Include="ServerLib.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

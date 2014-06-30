@@ -25,6 +25,9 @@
     <Filter Include="Field\FIeldObjectComponent">
       <UniqueIdentifier>{7cbdaab5-8a0a-484a-9ed7-56c35090c362}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Field\FieldObjectFSM">
+      <UniqueIdentifier>{6196a8f4-e8d6-49cb-95ce-1713a5aefd09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServerLib.h">
@@ -50,6 +53,15 @@
     </ClInclude>
     <ClInclude Include="FieldMap.h">
       <Filter>Field\FieldMap</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldObjectFSM.h">
+      <Filter>Field\FieldObjectFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="FSM_IDLE.h">
+      <Filter>Field\FieldObjectFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="FSM_MOVE.h">
+      <Filter>Field\FieldObjectFSM</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +91,15 @@
     </ClCompile>
     <ClCompile Include="Client_Packet.cpp">
       <Filter>Client</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldObjectFSM.cpp">
+      <Filter>Field\FieldObjectFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="FSM_IDLE.cpp">
+      <Filter>Field\FieldObjectFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="FSM_MOVE.cpp">
+      <Filter>Field\FieldObjectFSM</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
