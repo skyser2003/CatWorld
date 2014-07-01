@@ -8,6 +8,7 @@
 
 FieldObject::FieldObject()
 {
+	uid = -1;
 	ChangeFSM(FieldObjectFSM::IDLE);
 }
 FieldObject::~FieldObject()
