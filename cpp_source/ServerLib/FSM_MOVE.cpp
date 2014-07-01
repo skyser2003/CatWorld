@@ -5,21 +5,10 @@
 
 void FSM_MOVE::onUpdate(float dt)
 {
-	auto leftDistance = owner->dest - owner->pos;
+	glm::vec3 dist;
+	dist.x = owner->velocity.x * dt / 1000.0f;
+	dist.y = owner->velocity.y * dt / 1000.0f;
+	dist.z = owner->velocity.z * dt / 1000.0f;
 
-	auto dd = glm::vec3(owner->velocity);
-	dd.x *= 1000 / dt;
-	dd.y *= 1000 / dt;
-	dd.z *= 1000 / dt;
-
-	if (leftDistance.x <= dd.x
-		&& leftDistance.y <= dd.y
-		&& leftDistance.z <= dd.z)
-	{
-		// TODO - change FSM to IDLE
-	}
-	else
-	{
-		owner->pos += dd;
-	}
+	owner->pos += dist;
 }

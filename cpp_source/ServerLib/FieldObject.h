@@ -1,20 +1,22 @@
 #pragma once
 
-class FieldObjectComponent;
+#include "FieldObjectFSM.h"
 
 class FieldObject
 {
 public:
-	typedef std::unique_ptr<FieldObjectComponent> UPtrComp;
-public:
 	glm::vec3 pos;
-	glm::vec3 dest;
 	glm::vec3 velocity;
 public:
 	FieldObject();
 	~FieldObject();
 
 	void AddComponent(UPtrComp& component);
+
+	void ChangeFSM(FieldObjectFSM::STATE state);
 private:
 	std::list<UPtrComp> componentList;
+
+	FieldObjectFSM::STATE state;
+	std::unique_ptr<FieldObjectFSM> fsm;
 };

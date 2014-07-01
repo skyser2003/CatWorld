@@ -5,7 +5,7 @@ class FieldObject;
 class FieldObjectFSM
 {
 public:
-	enum
+	enum STATE
 	{
 		IDLE,
 		MOVE,
