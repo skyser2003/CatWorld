@@ -40,6 +40,7 @@ void ServerLib::Init()
 	RegisterPacket(LOGIN);
 	RegisterPacket(CHAT);
 	RegisterPacket(MOVE);
+	RegisterPacket(STOP);
 
 	// Logic
 	cm.reset(new ClientManager());

@@ -2,9 +2,14 @@ message Packet
 {
 	enum Message
 	{
+		// Client to Server
 		LOGIN = 1;
-		LOGIN_RESULT = 2;
-		CHAT = 3;
-		MOVE = 4;
+		CHAT = 2;
+		MOVE = 3;
+		STOP = 4;
+
+		// Server to Client
+		LOGIN_RESULT = 1001;
+		POSITION = 1002;
 	}
 }

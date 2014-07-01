@@ -19,3 +19,9 @@ void Client::OnPacket(MOVE& pks)
 
 	pc->ChangeFSM(FieldObjectFSM::MOVE);
 }
+
+template <>
+void Client::OnPacket(STOP& stop)
+{
+	pc->ChangeFSM(FieldObjectFSM::IDLE);
+}

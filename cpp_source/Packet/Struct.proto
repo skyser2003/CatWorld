@@ -1,14 +1,10 @@
 import "Message.proto";
 
+// Client to Server
 message LOGIN
 {
 	required string id = 1;
 	required string pw = 2;
-}
-
-message LOGIN_RESULT
-{
-	required int32 result = 1;
 }
 
 message CHAT
@@ -17,6 +13,23 @@ message CHAT
 }
 
 message MOVE
+{
+	required float x = 1;
+	required float y = 2;
+	required float z = 3;
+}
+
+message STOP
+{
+}
+
+// Server to Client
+message LOGIN_RESULT
+{
+	required int32 result = 1;
+}
+
+message POSITION
 {
 	required float x = 1;
 	required float y = 2;
