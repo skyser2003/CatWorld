@@ -18,5 +18,5 @@ private:
 	std::list<UPtrComp> componentList;
 
 	FieldObjectFSM::STATE state;
-	std::unique_ptr<FieldObjectFSM> fsm;
+	UPtrFSM fsm;
 };
