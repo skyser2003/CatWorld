@@ -20,6 +20,8 @@ var GameScene = function () {
     var moveDist = 0.5;
 
     var initControl = function () {
+        var pm = game.pm;
+
         jQuery(document).keydown(function (e) {
             switch (e.keyCode) {
                 case 65: // a
@@ -31,6 +33,12 @@ var GameScene = function () {
                         var dest = game.player.pos.clone();
                         dest.x -= moveDist;
                         game.player.moveTo(dest);
+
+                        var pks = pm.createInstance("MOVE");
+                        pks.x = -moveDist;
+                        pks.y = 0;
+                        pks.z = 0;
+                        pm.send(pks);
 
                         isMoveKeyDown = true;
                     }

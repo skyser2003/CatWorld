@@ -2,7 +2,7 @@ var Game = function () {
     var self = this;
 
     // Packet
-    var pm = new PacketManager();
+    this.pm = new PacketManager();
 
     // Graphics
     this.canvasID = "canvas";
@@ -15,12 +15,12 @@ var Game = function () {
 
     this.init = function () {
         // Init packet
-        pm.setReceiveFunc(onReceivePacket);
+        self.pm.setReceiveFunc(onReceivePacket);
 
-        var pks = pm.createInstance("LOGIN");
+        var pks = self.pm.createInstance("LOGIN");
         pks.id = "skyser2003";
         pks.pw = "0000";
-        pm.send(pks);
+        self.pm.send(pks);
 
         // Init renderer
         initRenderer();
