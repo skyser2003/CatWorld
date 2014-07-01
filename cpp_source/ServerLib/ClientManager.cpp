@@ -12,7 +12,7 @@ ClientManager::~ClientManager()
 
 }
 
-ClientManager::SPtrClient ClientManager::CreateNewClient(const std::string& uid)
+SPtrClient ClientManager::CreateNewClient(const std::string& uid)
 {
 	SPtrClient client;
 	client.reset(new Client());
@@ -20,7 +20,7 @@ ClientManager::SPtrClient ClientManager::CreateNewClient(const std::string& uid)
 
 	return client;
 }
-ClientManager::SPtrClient ClientManager::Get(const std::string& uid)
+SPtrClient ClientManager::Get(const std::string& uid)
 {
 	auto it = clientList.find(uid);
 	if (it == clientList.end())

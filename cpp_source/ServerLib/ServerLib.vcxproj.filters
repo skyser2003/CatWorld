@@ -28,6 +28,9 @@
     <Filter Include="Field\FieldObjectFSM">
       <UniqueIdentifier>{6196a8f4-e8d6-49cb-95ce-1713a5aefd09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Typedef">
+      <UniqueIdentifier>{346b2aa5-d83d-4bc4-9453-1ec7e200f7c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServerLib.h">
@@ -45,9 +48,6 @@
     <ClInclude Include="DBManager.h">
       <Filter>DB</Filter>
     </ClInclude>
-    <ClInclude Include="FieldObject.h">
-      <Filter>Field\FieldObject</Filter>
-    </ClInclude>
     <ClInclude Include="FieldObjectComponent.h">
       <Filter>Field\FIeldObjectComponent</Filter>
     </ClInclude>
@@ -62,6 +62,12 @@
     </ClInclude>
     <ClInclude Include="FSM_MOVE.h">
       <Filter>Field\FieldObjectFSM</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldObject.h">
+      <Filter>Field\FieldObject</Filter>
+    </ClInclude>
+    <ClInclude Include="typedef.h">
+      <Filter>Typedef</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
