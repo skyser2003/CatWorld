@@ -69,6 +69,9 @@
     <ClInclude Include="typedef.h">
       <Filter>Typedef</Filter>
     </ClInclude>
+    <ClInclude Include="FieldMapManager.h">
+      <Filter>Field\FieldMap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ServerLib.cpp">
@@ -106,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="FSM_MOVE.cpp">
       <Filter>Field\FieldObjectFSM</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldMapManager.cpp">
+      <Filter>Field\FieldMap</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

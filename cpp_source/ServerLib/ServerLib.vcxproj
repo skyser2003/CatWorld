@@ -73,6 +73,7 @@
     <ClInclude Include="Client.h" />
     <ClInclude Include="ClientManager.h" />
     <ClInclude Include="DBManager.h" />
+    <ClInclude Include="FieldMapManager.h" />
     <ClInclude Include="FieldObject.h" />
     <ClInclude Include="FieldObjectComponent.h" />
     <ClInclude Include="FieldMap.h" />
@@ -88,6 +89,7 @@
     <ClCompile Include="ClientManager.cpp" />
     <ClCompile Include="Client_Packet.cpp" />
     <ClCompile Include="DBManager.cpp" />
+    <ClCompile Include="FieldMapManager.cpp" />
     <ClCompile Include="FieldObject.cpp" />
     <ClCompile Include="FieldObjectComponent.cpp" />
     <ClCompile Include="FieldMap.cpp" />
