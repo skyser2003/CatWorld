@@ -3,7 +3,7 @@
 
 #include "FieldObject.h"
 
-void FSM_MOVE::onUpdate(float dt)
+void FSM_MOVE::onUpdate(int dt)
 {
 	glm::vec3 dist;
 	dist.x = owner->velocity.x * dt / 1000.0f;

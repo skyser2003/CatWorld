@@ -5,5 +5,5 @@
 class FSM_MOVE final : public FieldObjectFSM
 {
 public:
-	void onUpdate(float dt) override;
+	void onUpdate(int dt) override;
 };

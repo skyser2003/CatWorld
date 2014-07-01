@@ -14,7 +14,7 @@ public:
 public:
 	void SetFieldObject(FieldObject* owner);
 	virtual void onBegin() {};
-	virtual void onUpdate(float dt) {};
+	virtual void onUpdate(int dt) {};
 	virtual void onEnd() {};
 protected:
 	FieldObject* owner;
