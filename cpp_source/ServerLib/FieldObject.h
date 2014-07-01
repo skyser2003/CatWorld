@@ -11,6 +11,8 @@ public:
 	FieldObject();
 	~FieldObject();
 
+	void Update(int dt);
+
 	void SetUid(int uid) { this->uid = uid; }
 	int GetUid() const{ return uid; }
 

@@ -16,6 +16,11 @@ FieldObject::~FieldObject()
 
 }
 
+void FieldObject::Update(int dt)
+{
+
+}
+
 void FieldObject::AddComponent(UPtrComp& component)
 {
 	componentList.push_back(UPtrComp(component.release()));
