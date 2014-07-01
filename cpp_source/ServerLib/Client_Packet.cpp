@@ -24,4 +24,11 @@ template <>
 void Client::OnPacket(STOP& stop)
 {
 	pc->ChangeFSM(FieldObjectFSM::IDLE);
+	
+	POSITION outPKS;
+	outPKS.set_x(pc->pos.x);
+	outPKS.set_y(pc->pos.y);
+	outPKS.set_z(pc->pos.z);
+
+	Send(Packet::POSITION, outPKS);
 }

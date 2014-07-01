@@ -37,8 +37,15 @@ var Game = function () {
         }
     };
 
+    // Packet receiver
     var onPacket_LOGIN_RESULT = function (pks) {
         console.log(pks.result);
+    };
+
+    var onPacket_POSITION = function (pks) {
+        self.player.pos.x = pks.x;
+        self.player.pos.y = pks.y;
+        self.player.pos.z = pks.z;
     };
 
     var initRenderer = function () {
