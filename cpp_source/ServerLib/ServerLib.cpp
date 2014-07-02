@@ -103,7 +103,7 @@ void ServerLib::RegisterHandler(const std::string& uid, google::protobuf::Messag
 }
 
 template <class PKS>
-ServerLib::UPtrMessage ServerLib::GenerateHandler()
+UPtrMessage ServerLib::GenerateHandler()
 {
 	return unique_ptr<PKS>(new PKS());
 }

@@ -6,7 +6,7 @@
 
 #include <node.h>
 #include <google/protobuf/message.h>
-#include "ServerLib.h"
+#include "ServerLibBroker.h"
 
 using namespace v8;
 
@@ -28,5 +28,5 @@ private:
 	static v8::Persistent<v8::Function> sendFunc;
 	static v8::Persistent<v8::Function> msgStructGetFunc;
 
-	static ServerLib serverLib;
+	static ServerLibBroker broker;
 };

@@ -6,12 +6,15 @@ class DBManager;
 
 class ServerLib
 {
+private:
+	struct MsgPair
+	{
+		int msg;
+		MSG& pks;
+	};
 public:
 	ServerLib();
 	~ServerLib();
-
-	typedef google::protobuf::Message MSG;
-	typedef std::unique_ptr<MSG> UPtrMessage;
 
 	typedef void (ServerLib::*packetHandler)(const std::string&, MSG&);
 	typedef UPtrMessage (ServerLib::*packetGenerator)();
@@ -37,6 +40,7 @@ private:
 	std::string rootPath;
 
 	// Packet
+	std::queue<MsgPair> msgQueue;
 	std::function<void(int, MSG&)> sendFunction;
 
 	std::unordered_map<int, packetHandler> handlerList;

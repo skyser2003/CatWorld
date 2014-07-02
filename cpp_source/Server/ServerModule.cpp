@@ -6,7 +6,7 @@
 #include "node_buffer.h"
 
 v8::Persistent<v8::Function> ServerModule::constructor;
-ServerLib ServerModule::serverLib;
+ServerLibBroker ServerModule::broker;
 v8::Persistent<v8::Function> ServerModule::sendFunc;
 v8::Persistent<v8::Function> ServerModule::msgStructGetFunc;
 
@@ -55,7 +55,7 @@ Handle<Value> ServerModule::Init(const Arguments& args)
 {
 	HandleScope scope;
 
-	serverLib.Init();
+	broker.Init();
 
 	return scope.Close(Undefined());
 }
@@ -71,7 +71,7 @@ Handle<Value> ServerModule::Parse(const v8::Arguments& args)
 	int length = bufferObj->GetIndexedPropertiesExternalArrayDataLength();
 	void* buffer = static_cast<void*>(bufferObj->GetIndexedPropertiesExternalArrayData());
 
-	serverLib.Parse(uid, msg, length, buffer);
+	broker.Parse(uid, msg, length, buffer);
 
 	return scope.Close(Undefined());
 }
@@ -107,7 +107,7 @@ Handle<Value> ServerModule::SetSendFunction(const v8::Arguments& args)
 	}
 
 	// Set ServerLib callback
-	serverLib.SetSendFunction([](int msg, google::protobuf::Message& pks)
+	broker.SetSendFunction([](int msg, google::protobuf::Message& pks)
 	{
 		ServerModule::Send(msg, pks);
 	});
@@ -123,7 +123,7 @@ Handle<Value> ServerModule::SetRootPath(const v8::Arguments& args)
 	std::string rootPath = *param1;
 	std::replace(rootPath.begin(), rootPath.end(), '\\', '/');
 
-	serverLib.SetRootPath(rootPath + "/");
+	broker.SetRootPath(rootPath + "/");
 
 	return scope.Close(Undefined());
 }

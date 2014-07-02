@@ -72,6 +72,9 @@
     <ClInclude Include="FieldMapManager.h">
       <Filter>Field\FieldMap</Filter>
     </ClInclude>
+    <ClInclude Include="ServerLibBroker.h">
+      <Filter>ServerLib</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ServerLib.cpp">
@@ -112,6 +115,9 @@
     </ClCompile>
     <ClCompile Include="FieldMapManager.cpp">
       <Filter>Field\FieldMap</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerLibBroker.cpp">
+      <Filter>ServerLib</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
