@@ -12,7 +12,7 @@ public:
 		CHASE
 	};
 public:
-	void SetFieldObject(FieldObject* owner);
+	void SetOwner(FieldObject* owner);
 	virtual void onBegin() {};
 	virtual void onUpdate(int dt) {};
 	virtual void onEnd() {};

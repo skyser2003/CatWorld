@@ -3,7 +3,7 @@
 
 #include "FieldObject.h"
 
-void FieldObjectFSM::SetFieldObject(FieldObject* owner)
+void FieldObjectFSM::SetOwner(FieldObject* owner)
 {
 	this->owner = owner;
 }
