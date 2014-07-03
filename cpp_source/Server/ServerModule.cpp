@@ -1,9 +1,5 @@
+#include "stdafx.h"
 #include "ServerModule.h"
-
-#include <fstream>
-#include <algorithm>
-
-#include "node_buffer.h"
 
 v8::Persistent<v8::Function> ServerModule::constructor;
 ServerLibBroker ServerModule::broker;

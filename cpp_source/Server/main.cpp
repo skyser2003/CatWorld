@@ -1,5 +1,4 @@
-#include <node.h>
-
+#include "stdafx.h"
 #include "ServerModule.h"
 using namespace v8;
 

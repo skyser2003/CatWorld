@@ -5,15 +5,24 @@
     <ClCompile Include="ServerModule.cpp">
       <Filter>Server</Filter>
     </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>PCH</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Server">
       <UniqueIdentifier>{d89bb0b2-c361-48ce-a172-81e3cf76325a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PCH">
+      <UniqueIdentifier>{6533662d-7e40-4321-b8c5-048e40163771}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServerModule.h">
       <Filter>Server</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>PCH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
