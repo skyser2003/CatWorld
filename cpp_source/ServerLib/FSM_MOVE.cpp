@@ -3,6 +3,11 @@
 
 #include "FieldObject.h"
 
+FSM_MOVE::FSM_MOVE(FieldObject* owner)
+{
+	SetOwner(owner);
+}
+
 void FSM_MOVE::onUpdate(int dt)
 {
 	glm::vec3 dist;
