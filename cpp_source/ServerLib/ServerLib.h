@@ -6,21 +6,23 @@ class DBManager;
 
 class ServerLib
 {
+public:
+	typedef void (ServerLib::*packetHandler)(const std::string&, MSG&);
+	typedef SPtrMessage(ServerLib::*packetGenerator)();
 private:
-	struct MsgPair
+	struct MsgSaver
 	{
-		int msg;
-		MSG& pks;
+		std::string uid;
+		SPtrMessage pks;
+		packetHandler handler;
 	};
 public:
 	ServerLib();
 	~ServerLib();
 
-	typedef void (ServerLib::*packetHandler)(const std::string&, MSG&);
-	typedef UPtrMessage (ServerLib::*packetGenerator)();
-public:
 	void Init();
 	void Destroy();
+	void Update();
 
 	void Parse(const std::string& uid, int msg, int length, void* buffer);
 	void Send(int msg, MSG& pks);
@@ -34,13 +36,16 @@ private:
 	template <class PKS>
 	void RegisterHandler(const std::string& uid, MSG& pks);
 	template <class PKS>
-	UPtrMessage GenerateHandler();
+	SPtrMessage GenerateHandler();
 
 	// Setting
 	std::string rootPath;
+	std::thread mainLoop;
+	bool isRunning;
 
 	// Packet
-	std::queue<MsgPair> msgQueue;
+	std::mutex receiveLock, sendLock;
+	std::queue<MsgSaver> receiveQueue, sendQueue;
 	std::function<void(int, MSG&)> sendFunction;
 
 	std::unordered_map<int, packetHandler> handlerList;

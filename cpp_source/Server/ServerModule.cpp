@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "ServerModule.h"
 
+#include "NodeCallback.h"
+
 v8::Persistent<v8::Function> ServerModule::constructor;
 ServerLibBroker ServerModule::broker;
 v8::Persistent<v8::Function> ServerModule::sendFunc;
@@ -74,21 +76,24 @@ Handle<Value> ServerModule::Parse(const v8::Arguments& args)
 
 void ServerModule::Send(int msg, google::protobuf::Message& pks)
 {
-	if (sendFunc->IsFunction() == false)
-	{
-		return;
-	}
+	auto* nodeCallback = new NodeCallback();
 
 	int pksLength = pks.ByteSize();
 	void* arr = malloc(pksLength);
 	pks.SerializeToArray(arr, pksLength);
 
-	auto* buffer = node::Buffer::New(reinterpret_cast<const char*>(arr), pksLength);
-	auto dummy = Local<Object>::New(buffer->handle_);
+	nodeCallback->Init([msg, arr, pksLength, nodeCallback]()
+	{
+		auto* buffer = node::Buffer::New(reinterpret_cast<const char*>(arr), pksLength);
+		auto dummy = Local<Object>::New(buffer->handle_);
 
-	Local<Value> args[] = { Number::New(msg) , dummy };
-	sendFunc->CallAsFunction(Context::GetCurrent()->Global(), 2, args);
-	free(arr);
+		Local<Value> args[] = { Number::New(msg), dummy };
+		sendFunc->CallAsFunction(Context::GetCurrent()->Global(), 2, args);
+		free(arr);
+		nodeCallback->Destroy();
+	});
+
+	nodeCallback->Send();
 }
 
 Handle<Value> ServerModule::SetSendFunction(const v8::Arguments& args)

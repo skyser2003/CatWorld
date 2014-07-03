@@ -47,10 +47,42 @@ void ServerLib::Init()
 
 	db.reset(new DBManager());
 	db->Init(rootPath, "db.sqlite3");
+
+	// Main loop
+	mainLoop = std::thread([this]()
+	{
+		Update();
+	});
+	isRunning = true;
+	mainLoop.detach();
 }
 
 void ServerLib::Destroy()
 {
+	isRunning = false;
+	mainLoop.join();
+}
+
+void ServerLib::Update()
+{
+	std::chrono::milliseconds dur(1);
+	while (isRunning)
+	{
+		std::this_thread::sleep_for(dur);
+
+		receiveLock.lock();
+		auto tmpQueue = receiveQueue;
+		while (receiveQueue.size()) receiveQueue.pop();
+		receiveLock.unlock();
+
+		while (tmpQueue.size())
+		{
+			auto save = tmpQueue.back();
+			tmpQueue.pop();
+
+			(this->*save.handler)(save.uid, *save.pks.get());
+		}
+	}
 }
 
 void ServerLib::Parse(const std::string& uid, int msg, int length, void* buffer)
@@ -64,11 +96,12 @@ void ServerLib::Parse(const std::string& uid, int msg, int length, void* buffer)
 		return;
 	}
 
-	auto msgStruct = (this->*it->second)();
-	msgStruct->ParseFromArray(buffer, length);
+	MsgSaver saver = { uid, (this->*it->second)(), it2->second };
+	saver.pks->ParseFromArray(buffer, length);
 
-	auto handlerFunc = it2->second;
-	(this->*handlerFunc)(uid, *msgStruct.get());
+	receiveLock.lock();
+	receiveQueue.push(saver);
+	receiveLock.unlock();
 }
 
 void ServerLib::Send(int msg, MSG& pks)
@@ -103,9 +136,9 @@ void ServerLib::RegisterHandler(const std::string& uid, google::protobuf::Messag
 }
 
 template <class PKS>
-UPtrMessage ServerLib::GenerateHandler()
+SPtrMessage ServerLib::GenerateHandler()
 {
-	return unique_ptr<PKS>(new PKS());
+	return shared_ptr<PKS>(new PKS());
 }
 
 // OnPacket specialization
