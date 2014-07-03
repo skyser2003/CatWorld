@@ -18,7 +18,7 @@ FieldObject::~FieldObject()
 
 void FieldObject::Update(int dt)
 {
-
+	fsm->onUpdate(dt);
 }
 
 void FieldObject::AddComponent(UPtrComp& component)
@@ -39,12 +39,12 @@ void FieldObject::ChangeFSM(FieldObjectFSM::STATE state)
 	{
 	case FieldObjectFSM::IDLE:
 	{
-		fsm.reset(new FSM_IDLE());
+		fsm.reset(new FSM_IDLE(this));
 	}
 		break;
 	case FieldObjectFSM::MOVE:
 	{
-		fsm.reset(new FSM_MOVE());
+		fsm.reset(new FSM_MOVE(this));
 	}
 		break;
 	case FieldObjectFSM::CHASE:
