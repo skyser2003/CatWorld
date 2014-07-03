@@ -8,14 +8,14 @@ void NodeCallback::Init(std::function<void(void)> callback)
 	uv_async_init(uv_default_loop(), &watcher, listener);
 }
 
-void NodeCallback::Destroy()
-{
-	uv_close((uv_handle_t*)&watcher, close);
-}
-
 void NodeCallback::Send()
 {
 	uv_async_send(&watcher);
+}
+
+void NodeCallback::Destroy()
+{
+	uv_close((uv_handle_t*)&watcher, close);
 }
 
 void NodeCallback::listener(uv_async_t* handle, int status)
@@ -25,6 +25,8 @@ void NodeCallback::listener(uv_async_t* handle, int status)
 	{
 		callback->callback();
 	}
+
+	callback->Destroy();
 }
 
 void NodeCallback::close(uv_handle_t* handle) {

@@ -90,7 +90,6 @@ void ServerModule::Send(int msg, google::protobuf::Message& pks)
 		Local<Value> args[] = { Number::New(msg), dummy };
 		sendFunc->CallAsFunction(Context::GetCurrent()->Global(), 2, args);
 		free(arr);
-		nodeCallback->Destroy();
 	});
 
 	nodeCallback->Send();
