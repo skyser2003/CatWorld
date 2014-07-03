@@ -52,6 +52,9 @@ void ServerLib::Init()
 
 	fm.reset(new FieldMapManager());
 
+	// TEMP - for test
+	fm->Add(shared_ptr<FieldMap>(new FieldMap()));
+
 	// Main loop
 	mainLoop = std::thread([this]()
 	{
@@ -169,4 +172,9 @@ void ServerLib::OnPacket(const std::string& uid, LOGIN& pks)
 	LOGIN_RESULT outPKS;
 	outPKS.set_result(1);
 	Send(Packet::LOGIN_RESULT, outPKS);
+
+	for (auto pair : *fm.get())
+	{
+		pair.second->AddNewObject(client->GetPC());
+	}
 }
