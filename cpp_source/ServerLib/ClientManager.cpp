@@ -20,6 +20,7 @@ SPtrClient ClientManager::CreateNewClient(const std::string& uid)
 
 	return client;
 }
+
 SPtrClient ClientManager::Get(const std::string& uid)
 {
 	auto it = clientList.find(uid);
@@ -31,4 +32,24 @@ SPtrClient ClientManager::Get(const std::string& uid)
 	{
 		return it->second;
 	}
+}
+
+ClientManager::iterator ClientManager::begin()
+{
+	return clientList.begin();
+}
+
+ClientManager::iterator ClientManager::end()
+{
+	return clientList.end();
+}
+
+ClientManager::const_iterator ClientManager::begin() const
+{
+	return clientList.begin();
+}
+
+ClientManager::const_iterator ClientManager::end() const
+{
+	return clientList.end();
 }
