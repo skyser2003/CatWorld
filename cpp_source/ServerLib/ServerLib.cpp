@@ -8,6 +8,8 @@ using namespace std;
 #include "Client.h"
 #include "ClientManager.h"
 #include "DBManager.h"
+#include "FieldMapManager.h"
+#include "FieldMap.h"
 
 #define RegisterPacket(name)\
 {\
@@ -48,6 +50,8 @@ void ServerLib::Init()
 	db.reset(new DBManager());
 	db->Init(rootPath, "db.sqlite3");
 
+	fm.reset(new FieldMapManager());
+
 	// Main loop
 	mainLoop = std::thread([this]()
 	{
@@ -66,10 +70,16 @@ void ServerLib::Destroy()
 void ServerLib::Update()
 {
 	std::chrono::milliseconds dur(1);
+	auto past = std::chrono::system_clock::now();
+
 	while (isRunning)
 	{
 		std::this_thread::sleep_for(dur);
+		auto now = chrono::steady_clock::now();
+		chrono::duration<__int64, std::milli> diff = chrono::duration_cast<chrono::milliseconds>(now - past);
+		past = now;
 
+		// Packet
 		receiveLock.lock();
 		auto tmpQueue = receiveQueue;
 		while (receiveQueue.size()) receiveQueue.pop();
@@ -81,6 +91,13 @@ void ServerLib::Update()
 			tmpQueue.pop();
 
 			(this->*save.handler)(save.uid, *save.pks.get());
+		}
+
+		// Logic
+		for (auto pair : *fm.get())
+		{
+			auto map = pair.second;
+			map->Update(diff.count());
 		}
 	}
 }

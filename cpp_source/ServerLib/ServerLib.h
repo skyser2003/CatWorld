@@ -1,8 +1,8 @@
 #pragma once
 
-class Game;
 class ClientManager;
 class DBManager;
+class FieldMapManager;
 
 class ServerLib
 {
@@ -56,4 +56,5 @@ private:
 	// Logic
 	std::unique_ptr<ClientManager> cm;
 	std::unique_ptr<DBManager> db;
+	std::unique_ptr<FieldMapManager> fm;
 };
