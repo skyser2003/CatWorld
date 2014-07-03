@@ -12,6 +12,8 @@ public:
 	void Init(ServerLib* game, std::string id, std::string pw);
 	void Send(int msg, google::protobuf::Message& pks);
 
+	SPtrObj GetPC() const { return pc; }
+
 	template <class PKS>
 	void OnPacket(PKS& pks);
 private:
@@ -20,5 +22,5 @@ private:
 	std::string id;
 	std::string pw;
 
-	std::shared_ptr<FieldObject> pc;
+	SPtrObj pc;
 };
