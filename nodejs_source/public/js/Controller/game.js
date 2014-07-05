@@ -2,7 +2,7 @@ var Game = function () {
     var self = this;
 
     // Packet
-    this.pm = new PacketManager();
+    pm = new PacketManager();
 
     // Graphics
     this.canvasID = "canvas";
@@ -15,15 +15,35 @@ var Game = function () {
 
     this.init = function () {
         // Init packet
-        self.pm.setReceiveFunc(onReceivePacket);
+        pm.setReceiveFunc(onReceivePacket);
 
-        var pks = self.pm.createInstance("LOGIN");
+        var pks = pm.createInstance("LOGIN");
         pks.id = "skyser2003";
         pks.pw = "0000";
-        self.pm.send(pks);
+        pm.send(pks);
 
         // Init renderer
         initRenderer();
+    };
+
+    this.moveTo = function (x, y, z) {
+        var velocity = new Vector3();
+        velocity.x = x;
+        velocity.y = y;
+        velocity.z = z;
+        self.player.moveTo(velocity);
+
+        var pks = pm.createInstance("MOVE");
+        pks.x = x;
+        pks.y = y;
+        pks.z = z;
+        pm.send(pks);
+    };
+
+    this.moveStop = function () {
+        self.player.stop();
+        var pks = pm.createInstance("STOP");
+        pm.send(pks);
     };
 
     this.update = function (dt) {

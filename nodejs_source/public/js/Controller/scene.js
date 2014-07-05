@@ -19,8 +19,6 @@ var GameScene = function () {
     var moveDist = 0.5;
 
     var initControl = function () {
-        var pm = game.pm;
-
         // Key state
         var keyDown = {};
         
@@ -37,26 +35,6 @@ var GameScene = function () {
             return !(keyDown[65] || keyDown[83] || keyDown[68] || keyDown[87]);
         };
 
-        var moveTo = function (x, y, z) {
-            var velocity = new Vector3();
-            velocity.x = x;
-            velocity.y = y;
-            velocity.z = z;
-            game.player.moveTo(velocity);
-
-            var pks = pm.createInstance("MOVE");
-            pks.x = x;
-            pks.y = y;
-            pks.z = z;
-            pm.send(pks);
-        };
-
-        var stop = function () {
-            game.player.stop();
-            var pks = pm.createInstance("STOP");
-            pm.send(pks);
-        };
-
         jQuery(document).keydown(function (e) {
             if (keyDown[e.keyCode] == true) {
                 return;
@@ -66,22 +44,22 @@ var GameScene = function () {
             switch (e.keyCode) {
                 case key.left:
                     {
-                        moveTo(-moveDist, 0, 0);
+                        game.moveTo(-moveDist, 0, 0);
                     }
                     break;
                 case key.up:
                     {
-                        moveTo(0, moveDist, 0);
+                        game.moveTo(0, moveDist, 0);
                     }
                     break;
                 case key.right:
                     {
-                        moveTo(moveDist, 0, 0);
+                        game.moveTo(moveDist, 0, 0);
                     }
                     break;
                 case key.down:
                     {
-                        moveTo(0, -moveDist, 0);
+                        game.moveTo(0, -moveDist, 0);
                     }
                     break;
             }
@@ -100,7 +78,7 @@ var GameScene = function () {
                 case key.down: // w
                     {
                         if (isMoveKeyAllUp() == true) {
-                            stop();
+                            game.moveStop();
                         }
                         else {
 
