@@ -25,10 +25,10 @@ var GameScene = function () {
         var keyDown = {};
         
         // Initialize
-        keyDown[37] = false;
-        keyDown[38] = false;
-        keyDown[39] = false;
-        keyDown[40] = false;
+        keyDown[key.left] = false;
+        keyDown[key.up] = false;
+        keyDown[key.right] = false;
+        keyDown[key.down] = false;
 
         var isMoveKeyAllDown = function () {
             return keyDown[65] && keyDown[83] && keyDown[68] && keyDown[87];
@@ -64,22 +64,22 @@ var GameScene = function () {
             keyDown[e.keyCode] = true;
 
             switch (e.keyCode) {
-                case 37:
+                case key.left:
                     {
                         moveTo(-moveDist, 0, 0);
                     }
                     break;
-                case 38:
+                case key.up:
                     {
                         moveTo(0, moveDist, 0);
                     }
                     break;
-                case 39:
+                case key.right:
                     {
                         moveTo(moveDist, 0, 0);
                     }
                     break;
-                case 40:
+                case key.down:
                     {
                         moveTo(0, -moveDist, 0);
                     }
@@ -94,10 +94,10 @@ var GameScene = function () {
             keyDown[e.keyCode] = false;
 
             switch (e.keyCode) {
-                case 37: // a
-                case 38: // s
-                case 39: // d
-                case 40: // w
+                case key.left: // a
+                case key.up: // s
+                case key.right: // d
+                case key.down: // w
                     {
                         if (isMoveKeyAllUp() == true) {
                             stop();
