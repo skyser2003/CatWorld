@@ -19,6 +19,7 @@ public:
 	void AddComponent(UPtrComp& component);
 
 	void ChangeFSM(FieldObjectFSM::STATE state);
+	FieldObjectFSM::STATE GetFSMState() const { return state; }
 private:
 	int uid;
 	std::list<UPtrComp> componentList;

@@ -6,7 +6,6 @@ var GameScene = function () {
     var self = this;
 
     var game = new Game();
-    var isMoveKeyDown = false;
 
     this.init = function () {
         game.init();
@@ -22,27 +21,48 @@ var GameScene = function () {
     var initControl = function () {
         var pm = game.pm;
 
-        var moveTo = function (x, y, z) {
-            if (isMoveKeyDown) {
-                return;
-            }
+        // Key state
+        var keyDown = {};
+        
+        // Initialize
+        keyDown[65] = false; // a
+        keyDown[83] = false; // s
+        keyDown[68] = false; // d
+        keyDown[87] = false; // w
 
-            var dest = game.player.pos.clone();
-            dest.x += x;
-            dest.y += y;
-            dest.z += z;
-            game.player.moveTo(dest);
+        var isMoveKeyAllDown = function () {
+            return keyDown[65] && keyDown[83] && keyDown[68] && keyDown[87];
+        };
+        var isMoveKeyAllUp = function () {
+            return !(keyDown[65] || keyDown[83] || keyDown[68] || keyDown[87]);
+        };
+
+        var moveTo = function (x, y, z) {
+            var velocity = new Vector3();
+            velocity.x = x;
+            velocity.y = y;
+            velocity.z = z;
+            game.player.moveTo(velocity);
 
             var pks = pm.createInstance("MOVE");
             pks.x = x;
             pks.y = y;
             pks.z = z;
             pm.send(pks);
+        };
 
-            isMoveKeyDown = true;
+        var stop = function () {
+            game.player.stop();
+            var pks = pm.createInstance("STOP");
+            pm.send(pks);
         };
 
         jQuery(document).keydown(function (e) {
+            if (keyDown[e.keyCode] == true) {
+                return;
+            }
+            keyDown[e.keyCode] = true;
+
             switch (e.keyCode) {
                 case 65: // a
                     {
@@ -66,17 +86,25 @@ var GameScene = function () {
                     break;
             }
         });
+
         jQuery(document).keyup(function (e) {
+            if (keyDown[e.keyCode] == false) {
+                return;
+            }
+            keyDown[e.keyCode] = false;
+
             switch (e.keyCode) {
                 case 65: // a
                 case 83: // s
                 case 68: // d
                 case 87: // w
                     {
-                        var pks = pm.createInstance("STOP");
-                        pm.send(pks);
+                        if (isMoveKeyAllUp() == true) {
+                            stop();
+                        }
+                        else {
 
-                        isMoveKeyDown = false;
+                        }
                     }
                     break;
             }
