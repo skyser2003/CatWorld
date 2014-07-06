@@ -162,7 +162,6 @@ SPtrMessage ServerLib::GenerateHandler()
 }
 
 // OnPacket specialization
-
 template <>
 void ServerLib::OnPacket(const std::string& uid, LOGIN& pks)
 {
