@@ -173,8 +173,7 @@ void ServerLib::OnPacket(const std::string& uid, LOGIN& pks)
 	outPKS.set_result(1);
 	Send(Packet::LOGIN_RESULT, outPKS);
 
-	for (auto pair : *fm.get())
-	{
-		pair.second->AddNewObject(client->GetPC());
-	}
+	// TEMP - for test
+	auto map = fm->Get(0);
+	map->AddNewObject(client->GetPC());
 }
