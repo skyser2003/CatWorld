@@ -29,10 +29,16 @@ var GameScene = function () {
         keyDown[key.down] = false;
 
         var isMoveKeyAllDown = function () {
-            return keyDown[65] && keyDown[83] && keyDown[68] && keyDown[87];
+            return keyDown[key.left]
+                && keyDown[key.up]
+                && keyDown[key.right]
+                && keyDown[key.down];
         };
         var isMoveKeyAllUp = function () {
-            return !(keyDown[65] || keyDown[83] || keyDown[68] || keyDown[87]);
+            return !(keyDown[key.left]
+                || keyDown[key.up]
+                || keyDown[key.right]
+                || keyDown[key.down]);
         };
 
         jQuery(document).keydown(function (e) {
