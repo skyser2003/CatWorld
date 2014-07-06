@@ -3,12 +3,24 @@
 
 FieldMapManager::FieldMapManager()
 {
-	token = 0;
+	uid = 0;
 }
 
 void FieldMapManager::Add(SPtrMap map)
 {
-	mapList.emplace(GetNextToken(), map);
+	mapList.emplace(GetNextUid(), map);
+}
+SPtrMap FieldMapManager::Get(int uid) const
+{
+	auto it = mapList.find(uid);
+	if (it == mapList.end())
+	{
+		return nullptr;
+	}
+	else
+	{
+		return it->second;
+	}
 }
 
 FieldMapManager::iterator FieldMapManager::begin()
