@@ -44,7 +44,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Packet;../External/protobuf-2.5.0/src;../SQLite;../GLM</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Packet;../External/protobuf-2.5.0/src;../SQLite;../GLM;../Jsoncpp/include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
@@ -59,7 +59,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Packet;../External/protobuf-2.5.0/src;../SQLite;../GLM</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Packet;../External/protobuf-2.5.0/src;../SQLite;../GLM;../Jsoncpp/include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
@@ -105,6 +105,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\Data.vcxproj">
+      <Project>{95910290-a217-4334-ac9d-37da00d4d888}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
     <ProjectReference Include="..\GLM\GLM.vcxproj">
       <Project>{fd0b633c-410c-48af-b67c-2842b974d37d}</Project>
       <Private>false</Private>

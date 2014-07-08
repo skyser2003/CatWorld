@@ -31,6 +31,8 @@ addInclude(binding, __dirname + "\\..\\ServerLib");
 addInclude(binding, __dirname + "\\..\\Packet");
 addInclude(binding, __dirname + "\\..\\SQLite");
 addInclude(binding, __dirname + "\\..\\GLM");
+addInclude(binding, __dirname + "\\..\\Jsoncpp");
+addInclude(binding, __dirname + "\\..\\Data");
 
 var libprotobufLibName =  __dirname + "\\..\\External\\libprotobuf_";
 if (mode == "Debug") {
