@@ -174,5 +174,6 @@ void ServerLib::OnPacket(const std::string& uid, LOGIN& pks)
 
 	// TEMP - for test
 	auto map = fm->Get(0);
-	map->AddNewObject(client->GetPC());
+	auto pc = map->CreateObject();
+	client->SetPC(pc);
 }

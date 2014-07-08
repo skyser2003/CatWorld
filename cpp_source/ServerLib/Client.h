@@ -12,6 +12,7 @@ public:
 	void Init(ServerLib* game, std::string id, std::string pw);
 	void Send(int msg, google::protobuf::Message& pks);
 
+	void SetPC(SPtrObj& pc) { this->pc = pc; }
 	SPtrObj GetPC() const { return pc; }
 
 	template <class PKS>

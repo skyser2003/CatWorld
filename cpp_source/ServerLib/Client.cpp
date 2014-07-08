@@ -17,8 +17,6 @@ void Client::Init(ServerLib* server, std::string id, std::string pw)
 	this->server = server;
 	this->id = id;
 	this->pw = pw;
-
-	pc.reset(new FieldObject());
 }
 
 void Client::Send(int msg, google::protobuf::Message& pks)

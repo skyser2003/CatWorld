@@ -4,13 +4,12 @@ class FieldMap
 {
 public:
 	void Init();
-
-	void AddNewObject(SPtrObj& object);
-
 	void Update(int dt);
 
-	int GetNextToken() { return token++; }
+	SPtrObj CreateObject();
 private:
+	int GetNextToken() { return token++; }
+
 	int token;
 
 	std::unordered_map<int, SPtrObj> objectList;
