@@ -15,6 +15,5 @@
 #include "sqlite3.h"
 #include <google/protobuf/message.h>
 #include "glm/glm.hpp"
-#include "json/json.h"
 
 #include "typedef.h"
