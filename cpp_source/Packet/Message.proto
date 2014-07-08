@@ -11,5 +11,6 @@ message Packet
 		// Server to Client
 		LOGIN_RESULT = 1001;
 		POSITION = 1002;
+		OBJECT_APPEAR = 1003;
 	}
 }

@@ -35,3 +35,8 @@ message POSITION
 	required float y = 2;
 	required float z = 3;
 }
+
+message OBJECT_APPEAR
+{
+	required int32 uid = 1;
+}
