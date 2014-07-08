@@ -113,6 +113,14 @@
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
+    <ProjectReference Include="..\Jsoncpp\Jsoncpp.vcxproj">
+      <Project>{3d6a90bf-21c2-40d1-96e5-b32acdd8a9ff}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
     <ProjectReference Include="..\Packet\Packet.vcxproj">
       <Project>{7eb73561-ce00-42e3-95d3-53e571d10c6a}</Project>
       <Private>false</Private>
