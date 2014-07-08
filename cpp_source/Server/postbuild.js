@@ -31,7 +31,7 @@ addInclude(binding, __dirname + "\\..\\ServerLib");
 addInclude(binding, __dirname + "\\..\\Packet");
 addInclude(binding, __dirname + "\\..\\SQLite");
 addInclude(binding, __dirname + "\\..\\GLM");
-addInclude(binding, __dirname + "\\..\\Jsoncpp");
+addInclude(binding, __dirname + "\\..\\Jsoncpp\\include");
 addInclude(binding, __dirname + "\\..\\Data");
 
 var libprotobufLibName =  __dirname + "\\..\\External\\libprotobuf_";
@@ -54,7 +54,6 @@ while (true) {
         var files = fs.readdirSync(dirLevels[curLevel][i]);
         for (var j in files) {
             if (files[j] == "protobuf-2.5.0") {
-                console.log("boo");
                 continue;
             }
             var file = dirLevels[curLevel][i] + "\\" + files[j];
