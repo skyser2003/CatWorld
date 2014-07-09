@@ -3,6 +3,7 @@
 class ClientManager;
 class DBManager;
 class FieldMapManager;
+class DataManager;
 
 class ServerLib
 {
@@ -57,4 +58,5 @@ private:
 	std::unique_ptr<ClientManager> cm;
 	std::unique_ptr<DBManager> db;
 	std::unique_ptr<FieldMapManager> fm;
+	std::unique_ptr<DataManager> dm;
 };

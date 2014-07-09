@@ -10,6 +10,7 @@ using namespace std;
 #include "DBManager.h"
 #include "FieldMapManager.h"
 #include "FieldMap.h"
+#include "DataManager.h"
 
 #define RegisterPacket(name)\
 {\
@@ -43,6 +44,10 @@ void ServerLib::Init()
 	RegisterPacket(CHAT);
 	RegisterPacket(MOVE);
 	RegisterPacket(STOP);
+
+	// Data
+	dm.reset(new DataManager());
+	dm->LoadAllFiles(rootPath + "server_data/json", true);
 
 	// Logic
 	cm.reset(new ClientManager());
