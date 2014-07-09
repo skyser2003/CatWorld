@@ -47,6 +47,47 @@ bool DataManager::LoadFile(const std::string& filename)
 	Json::Value root;
 	bool success = reader.parse(content, root);
 
+	if (success)
+	{
+		auto header = root["header"];
+		auto data = root["data"];
+
+		string dataSpaceName = header["name"].asString();
+
+		for (auto it = data.begin(); it != data.end(); ++it)
+		{
+			auto arr = *it;
+			for (auto it2 = arr.begin(); it2 != arr.end(); ++it2)
+			{
+				string key = it2.key().asString();
+				auto val = *it2;
+
+				switch (val.type())
+				{
+				case Json::ValueType::booleanValue:
+				{
+				}
+					break;
+				case Json::ValueType::intValue:
+				{
+
+				}
+					break;
+				case Json::ValueType::stringValue:
+				{
+
+				}
+					break;
+				case Json::ValueType::realValue:
+				{
+
+				}
+					break;
+				}
+			}
+		}
+	}
+
 	return success;
 }
 
