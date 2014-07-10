@@ -1,11 +1,9 @@
+#include "stdafx.h"
 #include "DataManager.h"
 
-#include <fstream>
-#include <filesystem>
 using namespace std;
 using namespace std::tr2;
 
-#include "json/json.h"
 
 DataManager::DataManager()
 {

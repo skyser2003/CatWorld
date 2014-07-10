@@ -4,15 +4,42 @@
     <Filter Include="DataManager">
       <UniqueIdentifier>{b7a63a6b-558f-456f-a3a3-0b21bb1523c6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PCH">
+      <UniqueIdentifier>{684eaba6-2a55-4b6a-b1a5-b73c8104b323}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataClass">
+      <UniqueIdentifier>{1809d530-d7e7-43b6-b796-e310b713e4fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataProperty">
+      <UniqueIdentifier>{56ae7f01-f3cf-40b2-a4b9-e5b7b3958350}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataManager.h">
       <Filter>DataManager</Filter>
     </ClInclude>
+    <ClInclude Include="DataProperty.h">
+      <Filter>DataProperty</Filter>
+    </ClInclude>
+    <ClInclude Include="DataClass.h">
+      <Filter>DataClass</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>PCH</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataManager.cpp">
       <Filter>DataManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DataProperty.cpp">
+      <Filter>DataProperty</Filter>
+    </ClCompile>
+    <ClCompile Include="DataClass.cpp">
+      <Filter>DataClass</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>PCH</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
