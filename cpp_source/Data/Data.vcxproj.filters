@@ -16,6 +16,9 @@
     <Filter Include="DataType">
       <UniqueIdentifier>{ba706798-f2b2-4116-94c2-d6bed42c06cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Typedef">
+      <UniqueIdentifier>{e916ba19-8816-4e1c-95a9-fb3fb7d68117}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataManager.h">
@@ -32,6 +35,9 @@
     </ClInclude>
     <ClInclude Include="DataType.h">
       <Filter>DataType</Filter>
+    </ClInclude>
+    <ClInclude Include="typedef.h">
+      <Filter>Typedef</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
