@@ -13,6 +13,9 @@
     <Filter Include="DataProperty">
       <UniqueIdentifier>{56ae7f01-f3cf-40b2-a4b9-e5b7b3958350}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DataType">
+      <UniqueIdentifier>{ba706798-f2b2-4116-94c2-d6bed42c06cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataManager.h">
@@ -27,6 +30,9 @@
     <ClInclude Include="stdafx.h">
       <Filter>PCH</Filter>
     </ClInclude>
+    <ClInclude Include="DataType.h">
+      <Filter>DataType</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataManager.cpp">
@@ -40,6 +46,9 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="DataType.cpp">
+      <Filter>DataType</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
