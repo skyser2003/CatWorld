@@ -9,4 +9,4 @@
 // External libraries
 #include "json/json.h"
 
-#include "typedef.h"
+#include "dataTypedef.h"
