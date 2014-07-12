@@ -4,6 +4,8 @@
 using namespace std;
 using namespace std::tr2;
 
+#include "DataClass.h"
+#include "DataProperty.h"
 
 DataManager::DataManager()
 {
@@ -54,35 +56,63 @@ bool DataManager::LoadFile(const std::string& filename)
 
 		for (auto it = data.begin(); it != data.end(); ++it)
 		{
-			auto arr = *it;
-			for (auto it2 = arr.begin(); it2 != arr.end(); ++it2)
+			auto properties = *it;
+
+			if (properties["id"].empty() == true)
+			{
+				// Error!  ID should exist;
+				continue;
+			}
+
+			SPtrClass cls(new DataClass);
+			
+			for (auto it2 = properties.begin(); it2 != properties.end(); ++it2)
 			{
 				string key = it2.key().asString();
 				auto val = *it2;
+
+				SPtrProp prop(new DataProperty);
+				prop->SetKey(key);
 
 				switch (val.type())
 				{
 				case Json::ValueType::booleanValue:
 				{
+					prop->SetValue<BOOL>(val.asBool());
 				}
 					break;
 				case Json::ValueType::intValue:
 				{
-
+					prop->SetValue<INT>(val.asInt());
 				}
 					break;
 				case Json::ValueType::stringValue:
 				{
-
+					prop->SetValue<STRING>(val.asString().c_str());
 				}
 					break;
 				case Json::ValueType::realValue:
 				{
-
+					prop->SetValue<FLOAT>(val.asFloat());
 				}
 					break;
 				}
+
+				cls->AddProperty(key, prop);
 			}
+
+			auto idProp = cls->GetProperty("id");
+			auto nameProp = cls->GetProperty("name");
+			
+			cls->SetID(idProp->Get<INT>());
+
+			// Name is optional
+			if (nameProp != nullptr)
+			{
+				cls->SetName(nameProp->Get<STRING>());
+			}
+
+			AddClass(cls);
 		}
 	}
 
@@ -114,4 +144,16 @@ bool DataManager::LoadAllFiles(const std::string& path, bool isRecursive)
 	}
 
 	return true;
+}
+
+void DataManager::AddClass(const SPtrClass& cls)
+{
+	if (classList.find(cls->ID()) == classList.end())
+	{
+		classList.emplace(cls->ID(), cls);
+	}
+	else
+	{
+		// Error!
+	}
 }
