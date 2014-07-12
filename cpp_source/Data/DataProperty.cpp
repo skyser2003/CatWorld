@@ -28,21 +28,20 @@ typename TypeStruct<BOOL>::type DataProperty::Get<BOOL>() const
 template <>
 void DataProperty::SetValue<INT>(TypeStruct<INT>::type value)
 {
-	SetType(INT);
 	intVal = value;
+	SetType(INT);
 }
 
 template <>
 void DataProperty::SetValue<FLOAT>(TypeStruct<FLOAT>::type value)
 {
-	SetType(FLOAT);
 	floatVal = value;
+	SetType(FLOAT);
 }
 
 template <>
 void DataProperty::SetValue<STRING>(TypeStruct<STRING>::type value)
 {
-	SetType(STRING);
 	if (type == STRING)
 	{
 		delete[] strVal;
@@ -50,14 +49,16 @@ void DataProperty::SetValue<STRING>(TypeStruct<STRING>::type value)
 
 	size_t strLen = strlen(value);
 	strVal = new char[strLen + 1];
-	strcpy_s(const_cast<char*>(strVal), strLen, value);
+	strcpy_s(const_cast<char*>(strVal), strLen + 1, value);
+
+	SetType(STRING);
 }
 
 template <>
 void DataProperty::SetValue<BOOL>(TypeStruct<BOOL>::type value)
 {
-	SetType(BOOL);
 	boolVal = value;
+	SetType(BOOL);
 }
 
 void DataProperty::SetKey(const std::string& key)
