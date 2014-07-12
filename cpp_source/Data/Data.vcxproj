@@ -73,7 +73,7 @@
     <ClInclude Include="DataProperty.h" />
     <ClInclude Include="DataType.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="typedef.h" />
+    <ClInclude Include="dataTypedef.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataClass.cpp" />

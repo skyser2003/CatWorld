@@ -36,7 +36,7 @@
     <ClInclude Include="DataType.h">
       <Filter>DataType</Filter>
     </ClInclude>
-    <ClInclude Include="typedef.h">
+    <ClInclude Include="dataTypedef.h">
       <Filter>Typedef</Filter>
     </ClInclude>
   </ItemGroup>
