@@ -19,7 +19,7 @@
     <Filter Include="Typedef">
       <UniqueIdentifier>{e916ba19-8816-4e1c-95a9-fb3fb7d68117}</UniqueIdentifier>
     </Filter>
-    <Filter Include="DataClassManager">
+    <Filter Include="DataList">
       <UniqueIdentifier>{7e63d399-3eea-40a2-9132-9049db0c638c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -42,8 +42,8 @@
     <ClInclude Include="dataTypedef.h">
       <Filter>Typedef</Filter>
     </ClInclude>
-    <ClInclude Include="DataClassManager.h">
-      <Filter>DataClassManager</Filter>
+    <ClInclude Include="DataList.h">
+      <Filter>DataList</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -62,8 +62,8 @@
     <ClCompile Include="DataType.cpp">
       <Filter>DataType</Filter>
     </ClCompile>
-    <ClCompile Include="DataClassManager.cpp">
-      <Filter>DataClassManager</Filter>
+    <ClCompile Include="DataList.cpp">
+      <Filter>DataList</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

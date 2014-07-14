@@ -11,6 +11,8 @@ public:
 	bool LoadFile(const std::string& filename);
 	bool LoadAllFiles(const std::string& path, bool isRecursive);
 private:
-	void AddClass(const SPtrClass& cls);
-	std::unordered_map<int, SPtrClass> classList;
+	void AddClass(const SPtrList& list, const SPtrClass& cls);
+	void AddDataList(const SPtrList& cls);
+
+	std::unordered_map<std::string, SPtrList> datalistList;
 };

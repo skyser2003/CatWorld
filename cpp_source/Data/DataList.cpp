@@ -1,10 +1,10 @@
 #include "stdafx.h"
-#include "DataClassManager.h"
+#include "DataList.h"
 
 #include "DataClass.h"
 #include "DataProperty.h"
 
-void DataClassManager::AddClass(const SPtrClass& cls)
+void DataList::AddClass(const SPtrClass& cls)
 {
 	int id = cls->GetProperty("id")->Get<INT>();
 	const char* name = cls->GetProperty("name")->Get<STRING>();
@@ -21,7 +21,7 @@ void DataClassManager::AddClass(const SPtrClass& cls)
 	}
 }
 
-SPtrClass DataClassManager::Get(int id) const
+SPtrClass DataList::Get(int id) const
 {
 	auto it = classIDList.find(id);
 
@@ -35,7 +35,7 @@ SPtrClass DataClassManager::Get(int id) const
 	}
 }
 
-SPtrClass DataClassManager::Get(const std::string& name) const
+SPtrClass DataList::Get(const std::string& name) const
 {
 	auto it = classNameList.find(name);
 

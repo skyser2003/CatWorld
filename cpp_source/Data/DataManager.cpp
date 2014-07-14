@@ -5,6 +5,7 @@ using namespace std;
 using namespace std::tr2;
 
 #include "DataClass.h"
+#include "DataList.h"
 #include "DataProperty.h"
 
 DataManager::DataManager()
@@ -52,7 +53,10 @@ bool DataManager::LoadFile(const std::string& filename)
 		auto header = root["header"];
 		auto data = root["data"];
 
-		string dataSpaceName = header["name"].asString();
+		string listName = header["name"].asString();
+		SPtrList list(new DataList);
+		list->SetName(listName);
+		AddDataList(list);
 
 		for (auto it = data.begin(); it != data.end(); ++it)
 		{
@@ -112,7 +116,7 @@ bool DataManager::LoadFile(const std::string& filename)
 				cls->SetName(nameProp->Get<STRING>());
 			}
 
-			AddClass(cls);
+			AddClass(list, cls);
 		}
 	}
 
@@ -146,11 +150,16 @@ bool DataManager::LoadAllFiles(const std::string& path, bool isRecursive)
 	return true;
 }
 
-void DataManager::AddClass(const SPtrClass& cls)
+void DataManager::AddClass(const SPtrList& list, const SPtrClass& cls)
 {
-	if (classList.find(cls->ID()) == classList.end())
+	list->AddClass(cls);
+}
+
+void DataManager::AddDataList(const SPtrList& list)
+{
+	if (datalistList.find(list->Name()) == datalistList.end())
 	{
-		classList.emplace(cls->ID(), cls);
+		datalistList.emplace(list->Name(), list);
 	}
 	else
 	{

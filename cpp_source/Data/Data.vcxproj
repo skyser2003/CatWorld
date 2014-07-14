@@ -69,7 +69,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="DataClass.h" />
-    <ClInclude Include="DataClassManager.h" />
+    <ClInclude Include="DataList.h" />
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="DataProperty.h" />
     <ClInclude Include="DataType.h" />
@@ -78,7 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataClass.cpp" />
-    <ClCompile Include="DataClassManager.cpp" />
+    <ClCompile Include="DataList.cpp" />
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="DataProperty.cpp" />
     <ClCompile Include="DataType.cpp" />

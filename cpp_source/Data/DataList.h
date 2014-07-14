@@ -1,6 +1,6 @@
 #pragma once
 
-class DataClassManager
+class DataList
 {
 public:
 	void AddClass(const SPtrClass& cls);
@@ -9,6 +9,7 @@ public:
 	SPtrClass Get(const std::string& name) const;
 
 	void SetName(const std::string& name) { this->name = name; }
+	const std::string& Name() const { return name; }
 private:
 	std::string name;
 	std::unordered_map<int, SPtrClass> classIDList;
