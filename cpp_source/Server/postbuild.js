@@ -34,7 +34,7 @@ addInclude(binding, __dirname + "\\..\\GLM");
 addInclude(binding, __dirname + "\\..\\Jsoncpp\\include");
 addInclude(binding, __dirname + "\\..\\Data");
 
-var libprotobufLibName =  __dirname + "\\..\\External\\libprotobuf_";
+var libprotobufLibName = __dirname + "\\..\\External\\libprotobuf_";
 if (mode == "Debug") {
     libprotobufLibName += "Debug.lib";
 }
@@ -101,6 +101,11 @@ if (mode == "Debug") {
 exec(gypString, function (err, stdout, stderr) {
     console.log(err);
     // Copy generated file to express server's node_modules
+
+    if (fs.existsSync("../../nodejs_source/node_modules") == false) {
+        fs.mkdirSync("../../nodejs_source/node_modules");
+    }
+
     fs.createReadStream("build/" + mode + "/" + targetName + ".node").pipe(fs.createWriteStream("../../nodejs_source/node_modules/" + targetName + ".node"));
     fs.createReadStream("build/" + mode + "/" + targetName + ".pdb").pipe(fs.createWriteStream("../../nodejs_source/node_modules/" + targetName + ".pdb"));
 
