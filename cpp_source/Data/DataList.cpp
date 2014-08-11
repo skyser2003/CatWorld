@@ -7,16 +7,15 @@
 void DataList::AddClass(const SPtrClass& cls)
 {
 	int id = cls->GetProperty("id")->Get<INT>();
-	const char* name = cls->GetProperty("name")->Get<STRING>();
+	auto name = cls->GetProperty("name");
 
-	if (classIDList.find(id) != classIDList.end()
-		&& classNameList.find(name) != classNameList.end())
+	if (classIDList.find(id) != classIDList.end())
 	{
 		classIDList.emplace(id, cls);
 
-		if (name != nullptr)
+		if(name != nullptr && classNameList.find(name->Get<STRING>()) != classNameList.end())
 		{
-			classNameList.emplace(name, cls);
+			classNameList.emplace(name->Get<STRING>(), cls);
 		}
 	}
 }
