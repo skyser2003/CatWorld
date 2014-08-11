@@ -18,9 +18,9 @@ void Client::OnPacket(MOVE& pks)
 		pc->ChangeFSM(FieldObjectFSM::MOVE);
 	}
 
-	pc->velocity.x += pks.x();
-	pc->velocity.y += pks.y();
-	pc->velocity.z += pks.z();
+	pc->velocity.x = pks.x();
+	pc->velocity.y = pks.y();
+	pc->velocity.z = pks.z();
 }
 
 template <>

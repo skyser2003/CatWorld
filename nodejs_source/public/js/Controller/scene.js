@@ -52,25 +52,31 @@ var GameScene = function () {
             switch (e.keyCode) {
                 case key.left:
                     {
-                        game.moveTo(-moveDist, 0, 0);
+                        velocity.x = -moveDist;
+                        game.moveTo(velocity);
                     }
                     break;
                 case key.up:
                     {
-                        game.moveTo(0, moveDist, 0);
+                        velocity.y = moveDist;
+                        game.moveTo(velocity);
                     }
                     break;
                 case key.right:
                     {
-                        game.moveTo(moveDist, 0, 0);
+                        velocity.x = moveDist;
+                        game.moveTo(velocity);
                     }
                     break;
                 case key.down:
                     {
-                        game.moveTo(0, -moveDist, 0);
+                        velocity.y = -moveDist;
+                        game.moveTo(velocity);
                     }
                     break;
             }
+
+            console.log(velocity);
         });
 
         jQuery(document).keyup(function (e) {
@@ -81,18 +87,32 @@ var GameScene = function () {
 
             switch (e.keyCode) {
                 case key.left: // a
-                case key.up: // s
-                case key.right: // d
-                case key.down: // w
                     {
-                        if (isMoveKeyAllUp() == true) {
-                            game.moveStop();
-                        }
-                        else {
-
-                        }
+                        velocity.x = 0;
                     }
                     break;
+                case key.up: // s
+                    {
+                        velocity.y = 0;
+                    }
+                    break;
+                case key.right: // d
+                    {
+                        velocity.x = 0;
+                    }
+                    break;
+                case key.down: // w
+                    {
+                        velocity.y = 0;
+                    }
+                    break;
+            }
+
+            if (isMoveKeyAllUp() == true) {
+                game.moveStop();
+            }
+            else {
+                game.moveTo(velocity);
             }
         });
     };

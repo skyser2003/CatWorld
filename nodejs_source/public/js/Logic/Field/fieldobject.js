@@ -11,9 +11,9 @@ var FieldObject = function () {
         if (self.fsmEnum !== FieldObjectFSM.STATE_MOVE) {
             changeFSM("MOVE");
         }
-        self.velocity.x += velocity.x;
-        self.velocity.y += velocity.y;
-        self.velocity.z += velocity.z;
+        self.velocity.x = velocity.x;
+        self.velocity.y = velocity.y;
+        self.velocity.z = velocity.z;
     }
     this.stop = function () {
         self.velocity.x = 0;

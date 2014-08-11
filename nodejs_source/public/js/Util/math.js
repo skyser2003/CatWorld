@@ -4,8 +4,7 @@ var Vector3 = function () {
     this.y = 0;
     this.z = 0;
 
-    switch(arguments.length)
-    {
+    switch (arguments.length) {
         case 1:
             {
                 this.x = arguments[0];
@@ -50,5 +49,15 @@ var Vector3 = function () {
         clone.z = self.z;
 
         return clone;
+    };
+
+    this.normalize = function () {
+        var magnitude = self.magnitude();
+
+        if (magnitude != 0 && magnitude != 1) {
+            self.x /= magnitude;
+            self.y /= magnitude;
+            self.z /= magnitude;
+        }
     };
 };
