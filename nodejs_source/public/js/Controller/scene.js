@@ -75,8 +75,6 @@ var GameScene = function () {
                     }
                     break;
             }
-
-            console.log(velocity);
         });
 
         jQuery(document).keyup(function (e) {
