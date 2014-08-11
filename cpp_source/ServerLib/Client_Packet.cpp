@@ -21,6 +21,10 @@ void Client::OnPacket(MOVE& pks)
 	pc->velocity.x = pks.x();
 	pc->velocity.y = pks.y();
 	pc->velocity.z = pks.z();
+	if ((pc->velocity.x == 0 && pc->velocity.y == 0 && pc->velocity.z == 0) == false)
+	{
+		pc->velocity = glm::normalize(pc->velocity);
+	}
 }
 
 template <>

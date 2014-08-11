@@ -9,6 +9,7 @@
 FieldObject::FieldObject()
 {
 	uid = -1;
+	speed = 0.5f;
 	ChangeFSM(FieldObjectFSM::IDLE);
 }
 FieldObject::~FieldObject()
