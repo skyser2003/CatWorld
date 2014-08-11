@@ -2,8 +2,9 @@ var Scene = function () {
 };
 
 var GameScene = function () {
-    this.prototype = new Scene();
     var self = this;
+
+    this.prototype = new Scene();
 
     var game = new Game();
 
@@ -16,7 +17,7 @@ var GameScene = function () {
         setInterval(game.update, 1000 / 60, 1000 / 60);
     };
 
-    var moveDist = 0.5;
+    var velocity = new Vector3();
 
     var initControl = function () {
         // Key state
@@ -47,6 +48,7 @@ var GameScene = function () {
             }
             keyDown[e.keyCode] = true;
 
+            var moveDist = 0.5;
             switch (e.keyCode) {
                 case key.left:
                     {

@@ -26,17 +26,25 @@ var Game = function () {
         initRenderer();
     };
 
-    this.moveTo = function (x, y, z) {
-        var velocity = new Vector3();
-        velocity.x = x;
-        velocity.y = y;
-        velocity.z = z;
-        self.player.moveTo(velocity);
+    this.moveTo = function () {
+        var velocity;
+
+        if (arguments.length == 1) {
+            velocity = arguments[0];
+            self.player.moveTo(velocity);
+        }
+        else if (arguments.length == 3) {
+            velocity = new Vector3();
+            velocity.x = arguments[0];
+            velocity.y = arguments[1];
+            velocity.z = arguments[2];
+            self.player.moveTo(velocity);
+        }
 
         var pks = pm.createInstance("MOVE");
-        pks.x = x;
-        pks.y = y;
-        pks.z = z;
+        pks.x = velocity.x;
+        pks.y = velocity.y;
+        pks.z = velocity.z;
         pm.send(pks);
     };
 
