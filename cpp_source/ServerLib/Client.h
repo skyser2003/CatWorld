@@ -15,6 +15,8 @@ public:
 	void SetPC(SPtrObj& pc) { this->pc = pc; }
 	SPtrObj GetPC() const { return pc; }
 
+	void SendMapEnterPacket();
+
 	template <class PKS>
 	void OnPacket(PKS& pks);
 private:

@@ -12,5 +12,6 @@ message Packet
 		LOGIN_RESULT = 1001;
 		POSITION = 1002;
 		OBJECT_APPEAR = 1003;
+		MAP_ENTER = 1004;
 	}
 }

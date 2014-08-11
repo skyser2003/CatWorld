@@ -23,9 +23,9 @@ var FieldObjectFSM_MOVE = function (owner) {
     };
 
     this.onUpdate = function (dt) {
-        owner.pos.x += owner.velocity.x * dt / 1000;
-        owner.pos.y += owner.velocity.y * dt / 1000;
-        owner.pos.z += owner.velocity.z * dt / 1000;
+        owner.pos.x += owner.direction.x * owner.speed * dt / 1000;
+        owner.pos.y += owner.direction.y * owner.speed * dt / 1000;
+        owner.pos.z += owner.direction.z * owner.speed * dt / 1000;
     };
 
     this.onEnd = function () {

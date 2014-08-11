@@ -181,4 +181,5 @@ void ServerLib::OnPacket(const std::string& uid, LOGIN& pks)
 	auto map = fm->Get(0);
 	auto pc = map->CreateObject();
 	client->SetPC(pc);
+	client->SendMapEnterPacket();
 }

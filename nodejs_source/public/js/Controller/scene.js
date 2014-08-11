@@ -48,7 +48,7 @@ var GameScene = function () {
             }
             keyDown[e.keyCode] = true;
 
-            var moveDist = 0.5;
+            var moveDist = 1;
             switch (e.keyCode) {
                 case key.left:
                     {

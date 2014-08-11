@@ -40,3 +40,8 @@ message OBJECT_APPEAR
 {
 	required int32 uid = 1;
 }
+
+message MAP_ENTER
+{
+	required float speed = 1;
+}

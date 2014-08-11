@@ -31,16 +31,21 @@ var Game = function () {
 
         if (arguments.length == 1) {
             velocity = arguments[0];
-            self.player.moveTo(velocity);
         }
         else if (arguments.length == 3) {
             velocity = new Vector3();
             velocity.x = arguments[0];
             velocity.y = arguments[1];
             velocity.z = arguments[2];
-            self.player.moveTo(velocity);
+        }
+        else {
+            velocity = new Vector3();
         }
 
+        // Client fake
+        self.player.moveTo(velocity);
+
+        // Send move packet
         var pks = pm.createInstance("MOVE");
         pks.x = velocity.x;
         pks.y = velocity.y;
@@ -74,6 +79,10 @@ var Game = function () {
         self.player.pos.x = pks.x;
         self.player.pos.y = pks.y;
         self.player.pos.z = pks.z;
+    };
+
+    var onPacket_MAP_ENTER = function (pks) {
+        self.player.speed = pks.speed;
     };
 
     var initRenderer = function () {

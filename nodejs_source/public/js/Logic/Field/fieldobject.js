@@ -2,23 +2,27 @@ var FieldObject = function () {
     var self = this;
 
     this.pos = new Vector3(0, 0, 0);
-    this.velocity = new Vector3(0, 0, 0);
+    this.direction = new Vector3(0, 0, 0);
+    this.speed = 0.0;
 
     this.fsmEnum = FieldObjectFSM.STATE_IDLE;
     this.fsm = new FieldObjectFSM_IDLE(this);
 
-    this.moveTo = function (velocity) {
+    this.moveTo = function (direction) {
         if (self.fsmEnum !== FieldObjectFSM.STATE_MOVE) {
             changeFSM("MOVE");
         }
-        self.velocity.x = velocity.x;
-        self.velocity.y = velocity.y;
-        self.velocity.z = velocity.z;
+
+        direction.normalize();
+
+        self.direction.x = direction.x;
+        self.direction.y = direction.y;
+        self.direction.z = direction.z;
     }
     this.stop = function () {
-        self.velocity.x = 0;
-        self.velocity.y = 0;
-        self.velocity.z = 0;
+        self.direction.x = 0;
+        self.direction.y = 0;
+        self.direction.z = 0;
     }
 
     this.update = function (dt) {
