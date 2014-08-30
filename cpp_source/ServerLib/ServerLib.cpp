@@ -107,6 +107,13 @@ void ServerLib::Update()
 			auto map = pair.second;
 			map->Update(diff.count());
 		}
+
+		// Client
+		for (auto pair : *cm.get())
+		{
+			auto client = pair.second;
+			client->Update(diff.count());
+		}
 	}
 }
 

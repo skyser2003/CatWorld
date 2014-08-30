@@ -6,6 +6,8 @@ class FieldObject;
 class Client
 {
 public:
+	static const int PositionPacketCooltime = 100;
+public:
 	Client();
 	~Client();
 
@@ -16,6 +18,7 @@ public:
 	SPtrObj GetPC() const { return pc; }
 
 	void SendMapEnterPacket();
+	void Update(int dt);
 
 	template <class PKS>
 	void OnPacket(PKS& pks);
@@ -26,4 +29,7 @@ private:
 	std::string pw;
 
 	SPtrObj pc;
+
+	int positionCooltime;
+
 };

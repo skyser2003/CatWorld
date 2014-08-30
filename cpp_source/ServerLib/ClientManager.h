@@ -12,6 +12,8 @@ public:
 	SPtrClient CreateNewClient(const std::string& uid);
 	SPtrClient Get(const std::string& uid);
 
+	void Update(int dt);
+
 	iterator begin();
 	iterator end();
 	const_iterator begin() const;

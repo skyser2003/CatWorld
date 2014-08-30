@@ -34,6 +34,15 @@ SPtrClient ClientManager::Get(const std::string& uid)
 	}
 }
 
+void ClientManager::Update(int dt)
+{
+	for (auto pair : clientList)
+	{
+		auto client = pair.second;
+		client->Update(dt);
+	}
+}
+
 ClientManager::iterator ClientManager::begin()
 {
 	return clientList.begin();
