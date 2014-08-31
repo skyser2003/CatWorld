@@ -119,6 +119,8 @@
     <ClCompile Include="FieldMapManager.cpp">
       <Filter>Field\FieldMap</Filter>
     </ClCompile>
-    <ClCompile Include="ServerBroker.cpp" />
+    <ClCompile Include="ServerBroker.cpp">
+      <Filter>ServerLib</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
