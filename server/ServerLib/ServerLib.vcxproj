@@ -81,6 +81,7 @@
     <ClInclude Include="FSM_IDLE.h" />
     <ClInclude Include="FSM_MOVE.h" />
     <ClInclude Include="IServerLib.h" />
+    <ClInclude Include="ServerBroker.h" />
     <ClInclude Include="ServerLib.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="typedef.h" />
@@ -97,6 +98,7 @@
     <ClCompile Include="FieldObjectFSM.cpp" />
     <ClCompile Include="FSM_IDLE.cpp" />
     <ClCompile Include="FSM_MOVE.cpp" />
+    <ClCompile Include="ServerBroker.cpp" />
     <ClCompile Include="ServerLib.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
