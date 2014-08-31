@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="C:">
+      <UniqueIdentifier>{7B735499-E5DD-1C2B-6C26-70023832A1CF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects">
+      <UniqueIdentifier>{7CAFA559-49D5-0913-BD41-C91CD6F35482}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects\CatWorld">
+      <UniqueIdentifier>{60200C2B-2D11-CA90-2412-08E0006A0C01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects\CatWorld\cpp_source">
+      <UniqueIdentifier>{2842EC6A-B11F-723A-E983-6E32F3757940}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects\CatWorld\cpp_source\SQLite">
+      <UniqueIdentifier>{4837F409-E28D-10FE-9596-131CC6A1825E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects\CatWorld\cpp_source\GLM">
+      <UniqueIdentifier>{C76EBA1C-116C-942C-294F-E5FF8A0E4D2B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects\CatWorld\cpp_source\GLM\glm">
+      <UniqueIdentifier>{4A0422C3-78B7-FD43-3137-D49FE3FA951F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects\CatWorld\cpp_source\GLM\glm\detail">
+      <UniqueIdentifier>{FB095581-6A62-B7AD-665A-9F9B8FD2D047}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects\CatWorld\cpp_source\Jsoncpp">
+      <UniqueIdentifier>{DEFCCEB7-FAB8-A614-C2F7-769A3F7C50C5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects\CatWorld\cpp_source\Jsoncpp\src">
+      <UniqueIdentifier>{8CDEE807-BC53-E450-C8B8-4DEBB66742D4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects\CatWorld\cpp_source\Jsoncpp\src\lib_json">
+      <UniqueIdentifier>{98BE9737-7BE7-EBC3-04A1-C44D1866838D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects\CatWorld\cpp_source\Server">
+      <UniqueIdentifier>{02DEA76D-13A1-B90A-A85D-CE6E18B557A9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects\CatWorld\cpp_source\Packet">
+      <UniqueIdentifier>{716FD7CE-C235-1849-6393-84CE36BF3507}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects\CatWorld\cpp_source\Packet\Autogen">
+      <UniqueIdentifier>{B5565525-8F8D-DBB6-1F9C-262E5C4DD4FE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects\CatWorld\cpp_source\ServerLib">
+      <UniqueIdentifier>{252FCD80-73E8-5AFC-22F5-C46EA7C8EC05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="C:\Projects\CatWorld\cpp_source\Data">
+      <UniqueIdentifier>{D4524AD5-E897-322F-A707-70212E5D2827}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..">
+      <UniqueIdentifier>{739DB09A-CC57-A953-A6CF-F64FA08E4FA7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\SQLite\sqlite3.c">
+      <Filter>C:\Projects\CatWorld\cpp_source\SQLite</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\SQLite\shell.c">
+      <Filter>C:\Projects\CatWorld\cpp_source\SQLite</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\GLM\glm\detail\glm.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\GLM\glm\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Jsoncpp\src\lib_json\json_reader.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\Jsoncpp\src\lib_json</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Jsoncpp\src\lib_json\json_value.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\Jsoncpp\src\lib_json</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Jsoncpp\src\lib_json\json_writer.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\Jsoncpp\src\lib_json</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Server\ServerModule.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Server\NodeCallback.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Server\stdafx.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Server\main.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Packet\Autogen\Message.pb.cc">
+      <Filter>C:\Projects\CatWorld\cpp_source\Packet\Autogen</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Packet\Autogen\Struct.pb.cc">
+      <Filter>C:\Projects\CatWorld\cpp_source\Packet\Autogen</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\ServerLib\FieldObjectComponent.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\ServerLib\FSM_MOVE.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\ServerLib\ServerLib.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\ServerLib\FieldMap.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\ServerLib\FieldObject.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\ServerLib\stdafx.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\ServerLib\FieldObjectFSM.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\ServerLib\DBManager.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\ServerLib\FSM_IDLE.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\ServerLib\ClientManager.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\ServerLib\Client.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\ServerLib\Client_Packet.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\ServerLib\ServerLibBroker.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\ServerLib\FieldMapManager.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Data\stdafx.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Data\DataManager.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Data\DataClass.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Data\DataProperty.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Data\DataType.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Projects\CatWorld\cpp_source\Data\DataList.cpp">
+      <Filter>C:\Projects\CatWorld\cpp_source\Data</Filter>
+    </ClCompile>
+    <None Include="..\binding.gyp">
+      <Filter>..</Filter>
+    </None>
+  </ItemGroup>
+</Project>
