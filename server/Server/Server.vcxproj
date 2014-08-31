@@ -93,6 +93,18 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\Data.vcxproj">
+      <Project>{95910290-a217-4334-ac9d-37da00d4d888}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GLM\GLM.vcxproj">
+      <Project>{fd0b633c-410c-48af-b67c-2842b974d37d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Jsoncpp\Jsoncpp.vcxproj">
+      <Project>{3d6a90bf-21c2-40d1-96e5-b32acdd8a9ff}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Packet\Packet.vcxproj">
+      <Project>{7eb73561-ce00-42e3-95d3-53e571d10c6a}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\ServerLib\ServerLib.vcxproj">
       <Project>{846b37b5-91ca-4157-a358-f7b67a71a9fd}</Project>
       <Private>false</Private>
@@ -100,6 +112,9 @@
       <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
       <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLite\SQLite.vcxproj">
+      <Project>{bcb5420f-588a-44a1-a6f5-60975697f9fa}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
