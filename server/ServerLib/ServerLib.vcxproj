@@ -44,8 +44,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Packet;../External/protobuf-2.5.0/src;../SQLite;../GLM;../Data</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../Packet;../External/protobuf-2.5.0/src;../SQLite;../GLM;../Data;../../boost</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
@@ -59,8 +59,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../Packet;../External/protobuf-2.5.0/src;../SQLite;../GLM;../Data</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../Packet;../External/protobuf-2.5.0/src;../SQLite;../GLM;../Data;../../boost</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
@@ -82,7 +82,6 @@
     <ClInclude Include="FSM_MOVE.h" />
     <ClInclude Include="IServerLib.h" />
     <ClInclude Include="ServerLib.h" />
-    <ClInclude Include="ServerLibBroker.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="typedef.h" />
   </ItemGroup>
@@ -99,7 +98,6 @@
     <ClCompile Include="FSM_IDLE.cpp" />
     <ClCompile Include="FSM_MOVE.cpp" />
     <ClCompile Include="ServerLib.cpp" />
-    <ClCompile Include="ServerLibBroker.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>

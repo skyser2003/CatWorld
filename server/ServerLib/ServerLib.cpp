@@ -136,12 +136,12 @@ void ServerLib::Parse(const std::string& uid, int msg, int length, void* buffer)
 	receiveLock.unlock();
 }
 
-void ServerLib::Send(int msg, MSG& pks)
+void ServerLib::Send(int msg, ProtobufMSG& pks)
 {
 	sendFunction(msg, pks);
 }
 
-void ServerLib::SetSendFunction(std::function<void(int, MSG&)> sendFunction)
+void ServerLib::SetSendFunction(std::function<void(int, ProtobufMSG&)> sendFunction)
 {
 	this->sendFunction = sendFunction;
 }

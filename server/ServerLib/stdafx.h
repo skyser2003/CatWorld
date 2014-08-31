@@ -15,6 +15,7 @@
 #include "sqlite3.h"
 #include <google/protobuf/message.h>
 #include "glm/glm.hpp"
+#include <boost/asio.hpp>
 
 #include "typedef.h"
 #include "dataTypedef.h"

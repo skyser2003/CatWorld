@@ -10,7 +10,7 @@ class DataManager;
 class ServerLib final : public IServerLib
 {
 public:
-	typedef void (ServerLib::*packetHandler)(const std::string&, MSG&);
+	typedef void (ServerLib::*packetHandler)(const std::string&, ProtobufMSG&);
 	typedef SPtrMessage(ServerLib::*packetGenerator)();
 private:
 	struct MsgSaver
@@ -28,16 +28,16 @@ public:
 	void Update();
 
 	void Parse(const std::string& uid, int msg, int length, void* buffer);
-	void Send(int msg, MSG& pks);
+	void Send(int msg, ProtobufMSG& pks);
 
-	void SetSendFunction(std::function<void(int, MSG&)> sendFunction);
+	void SetSendFunction(std::function<void(int, ProtobufMSG&)> sendFunction);
 	void SetRootPath(const std::string& rootPath);
 private:
 	template <class PKS>
 	void OnPacket(const std::string& uid, PKS& pks);
 
 	template <class PKS>
-	void RegisterHandler(const std::string& uid, MSG& pks);
+	void RegisterHandler(const std::string& uid, ProtobufMSG& pks);
 	template <class PKS>
 	SPtrMessage GenerateHandler();
 
@@ -49,7 +49,7 @@ private:
 	// Packet
 	std::mutex receiveLock, sendLock;
 	std::queue<MsgSaver> receiveQueue, sendQueue;
-	std::function<void(int, MSG&)> sendFunction;
+	std::function<void(int, ProtobufMSG&)> sendFunction;
 
 	std::unordered_map<int, packetHandler> handlerList;
 	std::unordered_map<int, packetGenerator> generatorList;
