@@ -31,6 +31,9 @@
     <Filter Include="Typedef">
       <UniqueIdentifier>{346b2aa5-d83d-4bc4-9453-1ec7e200f7c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Socket">
+      <UniqueIdentifier>{49f44977-6795-4f1a-94ca-7bc97c6a7192}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServerLib.h">
@@ -78,6 +81,9 @@
     <ClInclude Include="ServerBroker.h">
       <Filter>ServerLib</Filter>
     </ClInclude>
+    <ClInclude Include="Socket.h">
+      <Filter>Socket</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ServerLib.cpp">
@@ -121,6 +127,9 @@
     </ClCompile>
     <ClCompile Include="ServerBroker.cpp">
       <Filter>ServerLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket.cpp">
+      <Filter>Socket</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
