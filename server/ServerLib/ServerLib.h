@@ -1,11 +1,13 @@
 #pragma once
 
+#include "IServerLib.h"
+
 class ClientManager;
 class DBManager;
 class FieldMapManager;
 class DataManager;
 
-class ServerLib
+class ServerLib final : public IServerLib
 {
 public:
 	typedef void (ServerLib::*packetHandler)(const std::string&, MSG&);

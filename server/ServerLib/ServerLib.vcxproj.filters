@@ -75,6 +75,9 @@
     <ClInclude Include="ServerLibBroker.h">
       <Filter>ServerLib</Filter>
     </ClInclude>
+    <ClInclude Include="IServerLib.h">
+      <Filter>ServerLib</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ServerLib.cpp">
