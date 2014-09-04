@@ -42,3 +42,11 @@ nodejs_source/public/proto
 
 # Game db
 *.sqlite3
+
+# Unity
+client/Library
+client/Temp
+client/Client-csharp.sln
+client/Client.sln
+client/Assembly-CSharp-vs.csproj
+client/Assembly-CSharp.csproj
