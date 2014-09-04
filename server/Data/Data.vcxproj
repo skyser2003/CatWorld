@@ -90,11 +90,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Jsoncpp\Jsoncpp.vcxproj">
       <Project>{3d6a90bf-21c2-40d1-96e5-b32acdd8a9ff}</Project>
-      <Private>false</Private>
-      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
-      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
-      <LinkLibraryDependencies>false</LinkLibraryDependencies>
-      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
