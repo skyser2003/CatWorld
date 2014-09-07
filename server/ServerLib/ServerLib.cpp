@@ -1,7 +1,5 @@
 #include "stdafx.h"
 #include "ServerLib.h"
-
-#include <iostream>
 using namespace std;
 
 #include "Autogen/Struct.pb.h"

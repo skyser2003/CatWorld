@@ -1,5 +1,8 @@
 #pragma once
 
+// Standard header
+#include <iostream>
+
 // STL
 #include <string>
 #include <memory>
