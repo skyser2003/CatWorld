@@ -22,6 +22,9 @@
     <Filter Include="DataList">
       <UniqueIdentifier>{7e63d399-3eea-40a2-9132-9049db0c638c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DLL">
+      <UniqueIdentifier>{b618fd04-1210-4a3f-9236-c2d2b0e62bb2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataManager.h">

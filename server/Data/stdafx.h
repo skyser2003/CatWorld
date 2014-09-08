@@ -5,6 +5,7 @@
 #include <filesystem>
 #include <unordered_map>
 #include <memory>
+#include <string>
 
 // External libraries
 #include "json/json.h"

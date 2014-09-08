@@ -45,13 +45,14 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\Projects\node-v0.10.28\src;C:\Projects\node-v0.10.28\deps\uv\include;C:\Projects\node-v0.10.28\deps\v8\include;../ServerLib;../External/protobuf-2.5.0/src</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../../../boost/stage/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libboost_system-vc120-mt-gd-1_56.lib;../External/libprotobuf_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libboost_system-vc120-mt-gd-1_56.lib;../External/libprotobuf_$(Configuration).lib;$(OutDir)Data.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -70,7 +71,8 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\Projects\node-v0.10.28\src;C:\Projects\node-v0.10.28\deps\uv\include;C:\Projects\node-v0.10.28\deps\v8\include;../ServerLib;../External/protobuf-2.5.0/src</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>BUILDING_NODE_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
@@ -78,7 +80,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>../../../boost/stage/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libboost_system-vc120-mt-gd-1_56.lib;../External/libprotobuf_Release.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libboost_system-vc120-mt-gd-1_56.lib;../External/libprotobuf_$(Configuration).lib;$(OutDir)Data.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -97,14 +99,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Data\Data.vcxproj">
       <Project>{95910290-a217-4334-ac9d-37da00d4d888}</Project>
     </ProjectReference>
     <ProjectReference Include="..\GLM\GLM.vcxproj">
       <Project>{fd0b633c-410c-48af-b67c-2842b974d37d}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\Jsoncpp\Jsoncpp.vcxproj">
-      <Project>{3d6a90bf-21c2-40d1-96e5-b32acdd8a9ff}</Project>
     </ProjectReference>
     <ProjectReference Include="..\Packet\Packet.vcxproj">
       <Project>{7eb73561-ce00-42e3-95d3-53e571d10c6a}</Project>
@@ -115,9 +117,6 @@
     <ProjectReference Include="..\SQLite\SQLite.vcxproj">
       <Project>{bcb5420f-588a-44a1-a6f5-60975697f9fa}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
