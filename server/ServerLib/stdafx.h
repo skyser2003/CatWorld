@@ -19,6 +19,8 @@
 #include <google/protobuf/message.h>
 #include "glm/glm.hpp"
 #include <boost/asio.hpp>
+#include <boost/enable_shared_from_this.hpp>
+#include <boost/bind.hpp>
 
 #include "typedef.h"
 #include "dataTypedef.h"
